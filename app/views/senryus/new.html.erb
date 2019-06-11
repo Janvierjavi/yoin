@@ -1,13 +1,14 @@
 <h4>Each line you start with...</h4>
-<h1>
-<%= first_initial %>
-・
-<%= second_initial %>
-・
-<%= third_initial %>
-</h1>
 
-<%= form_with(model: @senryu, local: true) do |form| %>
+<%
+  x = first_initial
+  y = second_initial
+  z = third_initial
+%>
+
+<h1><%= x %>・<%= y %>・<%= z %></h1>
+
+<%= form_with(model: @senryu, local: true) do |f| %>
   <% if @senryu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@senryu.errors.count, "error") %> prohibited this @senryu from being saved:</h2>
@@ -21,21 +22,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_line %>
-    <%= form.text_field :first_line %>
+    
+    <%= f.hidden_field :first_initial, value: "#{x}" %>
+    <span><%= x %></span><%= f.text_field :first_line %>
   </div>
 
   <div class="field">
-    <%= form.label :second_line %>
-    <%= form.text_field :second_line %>
+    <%= f.hidden_field :second_initial, value: "#{y}" %>
+    <span><%= y %></span><%= f.text_field :second_line %>
   </div>
 
   <div class="field">
-    <%= form.label :third_line %>
-    <%= form.text_field :third_line %>
+    <%= f.hidden_field :third_initial, value: "#{z}" %>
+    <span><%= z %></span><%= f.text_field :third_line %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
