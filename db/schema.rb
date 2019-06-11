@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_031419) do
+ActiveRecord::Schema.define(version: 2019_06_11_072910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "senryus", force: :cascade do |t|
-    t.string "content"
+    t.string "first_line", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "second_line", null: false
+    t.string "third_line", null: false
   end
 
 end
