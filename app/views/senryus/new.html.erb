@@ -1,4 +1,11 @@
-<h1>Senryus#new</h1>
+<h4>Each line you start with...</h4>
+<h1>
+<%= first_initial %>
+・
+<%= second_initial %>
+・
+<%= third_initial %>
+</h1>
 
 <%= form_with(model: @senryu, local: true) do |form| %>
   <% if @senryu.errors.any? %>
@@ -14,8 +21,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :first_line %>
+    <%= form.text_field :first_line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :second_line %>
+    <%= form.text_field :second_line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :third_line %>
+    <%= form.text_field :third_line %>
   </div>
 
   <div class="actions">
