@@ -1,2 +1,9 @@
-<h1>Senryus#index</h1>
-<p>Find me in app/views/senryus/index.html.erb</p>
+<h1>Senryu#index</h1>
+
+
+<ul>
+  <% @senryus.each do |senryu| %>
+    <li><%= senryu.content %></li>
+  <% end %>
+</ul>
+
