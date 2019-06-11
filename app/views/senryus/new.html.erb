@@ -22,19 +22,18 @@
   <% end %>
 
   <div class="field">
-    
     <%= f.hidden_field :first_initial, value: "#{x}" %>
-    <span><%= x %></span><%= f.text_field :first_line %>
+    <span><%= x %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
   </div>
 
   <div class="field">
     <%= f.hidden_field :second_initial, value: "#{y}" %>
-    <span><%= y %></span><%= f.text_field :second_line %>
+    <span><%= y %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
   </div>
 
   <div class="field">
     <%= f.hidden_field :third_initial, value: "#{z}" %>
-    <span><%= z %></span><%= f.text_field :third_line %>
+    <span><%= z %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
   </div>
 
   <div class="actions">
