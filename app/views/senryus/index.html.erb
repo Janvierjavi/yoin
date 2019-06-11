@@ -3,7 +3,10 @@
 
 <ul>
   <% @senryus.each do |senryu| %>
-    <li><%= senryu.content %></li>
+    <li>
+      <%= senryu.content %>
+      <%= link_to '<delete>', senryu_path(senryu.id), method: :delete %>
+    </li>
   <% end %>
 </ul>
 

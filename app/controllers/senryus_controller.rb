@@ -17,11 +17,18 @@ class SenryusController < ApplicationController
   end
 
   def destroy
+    set_senryu
+    @senryu.destroy
+    redirect_to senryus_url, notice: "deleted successfully"
   end
 
   private
 
   def senryu_params
     params.require(:senryu).permit(:content)
+  end
+
+  def set_senryu
+    @senryu = Senryu.find(params[:id])
   end
 end
