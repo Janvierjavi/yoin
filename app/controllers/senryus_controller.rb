@@ -8,7 +8,7 @@ class SenryusController < ApplicationController
   end
 
   def create
-    @senryu = Senryu.new(senryu_params)
+    @senryu = Senryu.new(senryu_content)
     if @senryu.save
       redirect_to senryus_url, notice: "posted successfully"
     else
@@ -25,7 +25,15 @@ class SenryusController < ApplicationController
   private
 
   def senryu_params
-    params.fetch(:senryu, {}).permit %i[first_line second_line third_line]
+    params.fetch(:senryu, {}).permit %i[first_initial first_line second_initial second_line third_initial third_line]
+  end
+
+  def senryu_content
+    {
+      "first_line": senryu_params[:first_initial] + senryu_params[:first_line], 
+      "second_line": senryu_params[:second_initial] + senryu_params[:second_line], 
+      "third_line": senryu_params[:third_initial] + senryu_params[:third_line]
+    }
   end
 
   def set_senryu
