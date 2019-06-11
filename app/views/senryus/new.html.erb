@@ -1,0 +1,24 @@
+<h1>Senryus#new</h1>
+
+<%= form_with(model: @senryu, local: true) do |form| %>
+  <% if @senryu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@senryu.errors.count, "error") %> prohibited this @senryu from being saved:</h2>
+
+      <ul>
+      <% @senryu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Senryu#index</h1>
+
+
+<ul>
+  <% @senryus.each do |senryu| %>
+    <li>
+      <%= senryu.content %>
+      <%= link_to '<delete>', senryu_path(senryu.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
