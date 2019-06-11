@@ -25,7 +25,7 @@ class SenryusController < ApplicationController
   private
 
   def senryu_params
-    params.require(:senryu).permit(:content)
+    params.fetch(:senryu, {}).permit %i[first_line second_line third_line]
   end
 
   def set_senryu
