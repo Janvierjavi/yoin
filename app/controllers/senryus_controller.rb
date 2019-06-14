@@ -4,7 +4,16 @@ class SenryusController < ApplicationController
   end
 
   def new
-    @senryu = Senryu.new
+    if params[:senryu].present?
+      @senryu_with_errors = Senryu.create(senryu_content)
+      @senryu = Senryu.new(senryu_content_without_initial)
+      
+      @first_initial = params[:senryu][:first_initial]
+      @second_initial = params[:senryu][:second_initial]
+      @third_initial = params[:senryu][:third_initial]
+    else
+      @senryu = Senryu.new
+    end
   end
 
   def create
@@ -12,7 +21,7 @@ class SenryusController < ApplicationController
     if @senryu.save
       redirect_to senryus_url, notice: "posted successfully"
     else
-      render 'new'
+      redirect_to new_senryu_url(senryu: senryu_params)
     end
   end
 
@@ -33,6 +42,14 @@ class SenryusController < ApplicationController
       "first_line": senryu_params[:first_initial] + senryu_params[:first_line], 
       "second_line": senryu_params[:second_initial] + senryu_params[:second_line], 
       "third_line": senryu_params[:third_initial] + senryu_params[:third_line]
+    }
+  end
+
+  def senryu_content_without_initial
+    {
+      "first_line": senryu_params[:first_line], 
+      "second_line": senryu_params[:second_line], 
+      "third_line": senryu_params[:third_line]
     }
   end
 

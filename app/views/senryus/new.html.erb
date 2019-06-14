@@ -1,39 +1,42 @@
+<% if @senryu_with_errors.nil? %>
+  <%
+    @first_initial = first_initial
+    @second_initial = second_initial
+    @third_initial = third_initial
+  %>
+<% end %>
+
 <h4>Each line you start with...</h4>
-
-<%
-  x = first_initial
-  y = second_initial
-  z = third_initial
-%>
-
-<h1><%= x %>・<%= y %>・<%= z %></h1>
+<h1><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h1>
 
 <%= form_with(model: @senryu, local: true) do |f| %>
-  <% if @senryu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@senryu.errors.count, "error") %> prohibited this @senryu from being saved:</h2>
+  <% if @senryu_with_errors.present? %>
+    <% if @senryu_with_errors.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@senryu_with_errors.errors.count, "error") %> prohibited this @senryu from being saved:</h2>
 
-      <ul>
-      <% @senryu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @senryu_with_errors.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="field">
-    <%= f.hidden_field :first_initial, value: "#{x}" %>
-    <span><%= x %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
+    <%= f.hidden_field :first_initial, value: "#{@first_initial}" %>
+    <span><%= @first_initial %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
   </div>
 
   <div class="field">
-    <%= f.hidden_field :second_initial, value: "#{y}" %>
-    <span><%= y %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
+    <%= f.hidden_field :second_initial, value: "#{@second_initial}" %>
+    <span><%= @second_initial %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
   </div>
 
   <div class="field">
-    <%= f.hidden_field :third_initial, value: "#{z}" %>
-    <span><%= z %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
+    <%= f.hidden_field :third_initial, value: "#{@third_initial}" %>
+    <span><%= @third_initial %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
   </div>
 
   <div class="actions">
