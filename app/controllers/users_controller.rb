@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # とりあえずリダイレクト
-      redirect_to senryus_url
+      session[:user_id] = @user.id
+      redirect_to user_url(@user.id), notice: "ログインに成功しました"
     else
       render 'new'
     end
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # params[:user].delete(:password) if params[:user][:password].blank?
     if @user.update(user_params)
       redirect_to user_url(current_user.id), notice: 'プロフィールを編集しました'
     else
