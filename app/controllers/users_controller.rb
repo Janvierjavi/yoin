@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit update destroy]
+
   def new
     @user = User.new
   end
@@ -17,10 +19,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    # params[:user].delete(:password) if params[:user][:password].blank?
+    if @user.update(user_params)
+      redirect_to user_url(current_user.id), notice: 'プロフィールを編集しました'
+    else
+      render 'edit'
+    end
   end
 
   def show
-    @user = current_user
   end
 
   def destroy
@@ -30,6 +37,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :icon, :bio)
+  end
+
+  def set_user
+    @user = current_user
   end
 
 end
