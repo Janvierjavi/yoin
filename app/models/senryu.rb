@@ -24,7 +24,7 @@ class Senryu < ApplicationRecord
   end
 
   def hiragana?(string)
-    nil != (string =~ /\A[\u3041-\u3096]+\z/)
+    nil != (string =~ /\A[\u3041-\u3096|ー]+\z/)
   end
 
   def first_line_length
