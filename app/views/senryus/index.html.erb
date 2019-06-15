@@ -4,7 +4,7 @@
 <ul>
   <% @senryus.each do |senryu| %>
     <li>
-      <%= senryu.content %>
+      <%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %>
       <%= link_to '<delete>', senryu_path(senryu.id), method: :delete %>
     </li>
   <% end %>
