@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password, presence: true, length: { minimum: 6 }, on: :update, unless: Proc.new { |user| user.password.blank? }
+  validates :bio, length: { maximum: 150 }
 end
