@@ -5,8 +5,9 @@ class SenryusController < ApplicationController
 
   def new
     if params[:senryu].present?
-      @senryu_with_errors = Senryu.create(senryu_content)
-      @senryu = Senryu.new(senryu_content_without_initial)
+      @senryu_with_errors = current_user.senryus.build(senryu_content)
+      @senryu_with_errors.save
+      @senryu = current_user.senryus.build(senryu_content_without_initial)
       
       @first_initial = params[:senryu][:first_initial]
       @second_initial = params[:senryu][:second_initial]
@@ -17,7 +18,7 @@ class SenryusController < ApplicationController
   end
 
   def create
-    @senryu = Senryu.new(senryu_content)
+    @senryu = current_user.senryus.build(senryu_content)
     if @senryu.save
       redirect_to senryus_url, notice: "posted successfully"
     else
