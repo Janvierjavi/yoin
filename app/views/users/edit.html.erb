@@ -45,4 +45,6 @@
     <%= f.submit %>
   </div>
 
+  <%= link_to '退会する', user_path(current_user.id), method: :delete, data: { confirm: '本当に退会されますか？' } %>
+
 <% end %>
