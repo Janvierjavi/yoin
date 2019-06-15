@@ -1,6 +1,7 @@
-<h1><%= current_user.name %>のユーザーページ</h1>
-<p><%= current_user.bio %></p>
-<%= link_to 'ログアウト', session_path(current_user.id), method: :delete %>
+<h1><%= @user.name %>のユーザーページ</h1>
+<p><%= @user.bio %></p>
+<%# のちのち、以下は表示を制限する　とりあえず画面上で操作を行うためのリンク#%>
+<%= link_to 'ログアウト', session_path(@user.id), method: :delete %>
 <%= link_to '投稿', new_senryu_path %>
 <%= link_to '一覧', senryus_path %>
-<%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
+<%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
