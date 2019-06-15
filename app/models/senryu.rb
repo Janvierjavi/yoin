@@ -1,4 +1,6 @@
 class Senryu < ApplicationRecord
+  belongs_to :user
+
   validate :first_line_length
   validate :second_line_length
   validate :third_line_length
