@@ -23,6 +23,9 @@ CarrierWave.configure do |config|
   when 'development'
     config.fog_directory = ENV['AWS_S3_BUCKET_DEVELOPMENT']
     config.asset_host = ENV['AWS_S3_URL_DEVELOPMENT']
+  when 'test'
+    config.fog_directory = ENV['AWS_S3_BUCKET_TEST']
+    config.asset_host = ENV['AWS_S3_URL_TEST']
   end
 
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
