@@ -51,4 +51,26 @@ RSpec.feature User, type: :feature do
 
     expect(current_path).to eq user_path(@test_user_01.id)
   end
+
+  scenario 'プロフィール編集でプロフィール画像の設定、名前の変更、自己紹介文の追加ができる' do
+    login_as_test_user_01
+
+    expect(current_path).to eq user_path(@test_user_01.id)
+
+    expect(page).not_to have_content 'Yohei'
+    expect(page).not_to have_content 'Hello'
+
+    visit edit_user_path(@test_user_01.id)
+
+    attach_file "user[icon]", "spec/factories/profile_icon_sample.png"
+    fill_in 'user[name]', with: 'Yohei'
+    fill_in 'user[bio]', with: 'Hello'
+
+    click_on 'Update User'
+
+    expect(page).to have_css '.profile-img'
+    expect(page).to have_content 'Yohei'
+    expect(page).to have_content 'Hello'
+
+  end
 end
