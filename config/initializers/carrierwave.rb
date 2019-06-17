@@ -13,7 +13,8 @@ CarrierWave.configure do |config|
     path_style: true
   }
 
-  config.fog_public = true
+  config.fog_public     = false
+  config.fog_authenticated_url_expiration = 60
   config.fog_attributes = {'Cache-Control' => 'public, max-age=86400'}
 
   case Rails.env
