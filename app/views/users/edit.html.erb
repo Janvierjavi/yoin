@@ -10,7 +10,12 @@
     </div>
   <% end %>
 
-  <%# プロフィール画像設定できるようにする #%>
+  <div class="fiel icon-field">
+    <%= image_tag(@user.icon.url) if @user.icon && @user.icon.url %><br />
+    <%= f.label :icon %><br />
+    <%= f.file_field :icon, id: "select_icon" %>
+    <%= f.hidden_field :icon_cache %>
+  </div>
   
   <div class="field">
     <%= f.label :name %>
