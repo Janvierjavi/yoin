@@ -1,5 +1,6 @@
 class Senryu < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   validate :first_line_length
   validate :second_line_length
