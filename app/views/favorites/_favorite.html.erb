@@ -9,6 +9,7 @@
     <%= link_to senryu_favorite_path(senryu_id: senryu.id, id: senryu.favorites[0].id), method: :delete, remote: true do %>
       <i class="fas fa-heart"></i>
       <%= senryu.favorites_count %>
+    <% end %>
   <% end %>
-  
+
 <% end %>
