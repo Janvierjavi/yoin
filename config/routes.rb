@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :senryus, only: %w(index new create destroy) do
     resources :favorites, only: %w(create destroy)
   end
+  resources :relationships, only: %w(create destroy)
 end
