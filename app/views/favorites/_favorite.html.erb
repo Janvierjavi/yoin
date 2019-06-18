@@ -1,0 +1,15 @@
+<% if logged_in? %>
+
+  <% if senryu.favorited(current_user.id).blank? %>
+    <%= link_to senryu_favorites_path(senryu.id), id: "favorite_senryu_#{senryu.id}", method: :post, remote: true do %>
+      <i class="far fa-heart"></i>
+      <%= senryu.favorites_count unless senryu.favorites_count == 0 || nil %>
+    <% end %>
+  <% else %>
+    <%= link_to senryu_favorite_path(senryu_id: senryu.id, id: senryu.favorites[0].id), id: "favorite_senryu_#{senryu.id}", method: :delete, remote: true do %>
+      <i class="fas fa-heart"></i>
+      <%= senryu.favorites_count %>
+    <% end %>
+  <% end %>
+
+<% end %>

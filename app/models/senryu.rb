@@ -1,5 +1,10 @@
 class Senryu < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
+
+  def favorited(user_id)
+    favorites.find_by(user_id: user_id)
+  end
 
   validate :first_line_length
   validate :second_line_length
