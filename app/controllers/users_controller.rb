@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: %i[new create]
-  before_action :set_user, only: %i[edit update destroy following followers]
+  before_action :set_user, only: %i[edit update destroy following followers collection]
   
   def new
     if logged_in?
@@ -48,6 +48,14 @@ class UsersController < ApplicationController
 
   def followers
     @users = @user.followers
+  end
+
+  def home
+    @senryus = Senryu.subscribed(current_user.following)
+  end
+
+  def collection
+    @senryus = @user.favorite_senryus
   end
 
   private
