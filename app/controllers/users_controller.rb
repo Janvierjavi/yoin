@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    not_allow
   end
 
   def update
@@ -56,7 +57,10 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
+  def not_allow
+    redirect_to user_url(current_user.id) unless @user == current_user
+  end
 end
