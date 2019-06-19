@@ -19,5 +19,5 @@
 <%= link_to 'ログアウト', session_path(@user.id), method: :delete %>
 <%= link_to 'ホーム', home_user_path(@user.id) %>
 <%= link_to '投稿', new_senryu_path %>
-<%= link_to '一覧', senryus_path %>
+<%= link_to '一覧', discover_senryus_path %>
 <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>

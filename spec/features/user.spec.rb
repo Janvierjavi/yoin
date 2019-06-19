@@ -17,7 +17,7 @@ RSpec.feature User, type: :feature do
 
   scenario 'ログインしていないユーザーはサインアップ・ログインページ以外のいかなるページにもアクセスできない' do
     # 全575一覧
-    visit senryus_path
+    visit discover_senryus_path
     expect(page).to have_content 'ログインしてください'
     expect(current_path).to eq new_session_path
 

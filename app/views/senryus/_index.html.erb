@@ -1,15 +1,11 @@
-<h1>Senryu#index</h1>
-
-
 <ul>
   <% @senryus.each do |senryu| %>
     <li>
       <%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %> by <%= senryu.user.name %>
       <%= link_to '<delete>', senryu_path(senryu.id), method: :delete %>
       <div id="favorites_buttons_<%= senryu.id %>">
-        <%= render partial: 'favorites/favorite', locals: { senryu: senryu, favorites: @favorites } %>
+        <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
       </div>
     </li>
   <% end %>
 </ul>
-

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions, only: %w(new create destroy)
-  resources :senryus, only: %w(index new create destroy) do
+  resources :senryus, only: %w(new create destroy) do
+    collection do
+      get :discover
+    end
     resources :favorites, only: %w(create destroy)
   end
   resources :relationships, only: %w(create destroy)
