@@ -50,6 +50,10 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
 
+  def home
+    @senryus = Senryu.subscribed(current_user.following)
+  end
+
   def collection
     @senryus = @user.favorite_senryus
   end
