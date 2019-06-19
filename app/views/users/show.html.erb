@@ -4,6 +4,12 @@
 </div>
 <p><%= @user.bio %></p>
 
+<p>フォロー中</p>
+<%= link_to "#{@user.following.size}", following_user_path(@user.id) %>
+
+<p>フォロワー</p>
+<%= link_to "#{@user.followers.size}", followers_user_path(@user.id) %>
+
 <%= render partial: 'users/follow', locals: { user: @user } %>
 
 <%# のちのち、以下は表示を制限する　とりあえず画面上で操作を行うためのリンク#%>
