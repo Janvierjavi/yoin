@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       get :following
       get :followers
+      get :collection
     end
   end
   resources :sessions, only: %w(new create destroy)
