@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature User, type: :feature do
   background do
     @test_user_01 = FactoryBot.create(:user)
+    @test_user_02 = FactoryBot.create(:user_second)
   end
 
   def login_as_test_user_01
@@ -71,6 +72,13 @@ RSpec.feature User, type: :feature do
     expect(page).to have_css '.profile-img'
     expect(page).to have_content 'Yohei'
     expect(page).to have_content 'Hello'
+  end
 
+  scenario "他人のプロフィール編集画面にはアクセスできない" do
+    login_as_test_user_01
+
+    visit edit_user_path(@test_user_02.id)
+    
+    expect(current_path).to eq user_path(@test_user_01.id)
   end
 end
