@@ -1,5 +1,5 @@
 class SenryusController < ApplicationController
-  def index
+  def discover
     @senryus = Senryu.all
   end
 
