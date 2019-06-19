@@ -36,6 +36,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def following
+  end
+
+  def followers
+  end
+
   def destroy
     @user.destroy
     redirect_to new_user_url, notice: "またね"
