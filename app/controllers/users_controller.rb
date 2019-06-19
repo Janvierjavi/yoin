@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: %i[new create]
-  before_action :set_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[edit update destroy following followers]
   
   def new
     if logged_in?
@@ -36,15 +36,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def following
-  end
-
-  def followers
-  end
-
   def destroy
     @user.destroy
     redirect_to new_user_url, notice: "またね"
+  end
+
+  def following
+    @users = @user.following
+  end
+
+  def followers
+    @users = @user.followers
   end
 
   private
