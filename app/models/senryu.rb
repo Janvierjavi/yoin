@@ -2,6 +2,8 @@ class Senryu < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
+  scope :subscribed, -> (following) { where(user_id: following) }
+
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
   end
