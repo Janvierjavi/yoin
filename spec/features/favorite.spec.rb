@@ -12,7 +12,7 @@ RSpec.feature Favorite, type: :feature do
     
     click_on 'Log in'
 
-    visit senryus_path
+    visit discover_senryus_path
   end
 
   scenario 'いいねボタンを押すとカウンターが正しく動く' do
