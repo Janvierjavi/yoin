@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 group :development do
@@ -57,3 +58,6 @@ gem 'fog-aws'
 
 # .env
 gem 'dotenv-rails'
+
+# for searching Senryu
+gem 'search_cop'

@@ -1,7 +1,21 @@
+<% if current_page?(controller: 'senryus', action: 'discover') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: discover_senryus_path) do |f| %>
+    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
+  <% end %>
+<% elsif current_page?(controller: 'senryus', action: 'home') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: home_senryus_path) do |f| %>
+    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
+  <% end %>
+<% elsif current_page?(controller: 'users', action: 'collection') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: collection_user_path(@user.id)) do |f| %>
+    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content"> 
+  <% end %>
+<% end %>
+
 <ul>
   <% @senryus.each do |senryu| %>
     <li>
-      <%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %> by <%= senryu.user.name %>
+      <%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %> by <%= senryu.user.name %> <%= senryu.created_at %>
       <%= link_to '<delete>', senryu_path(senryu.id), method: :delete %>
       <div id="favorites_buttons_<%= senryu.id %>">
         <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>

@@ -1,6 +1,10 @@
 class SenryusController < ApplicationController
   def discover
-    @senryus = Senryu.all
+    @senryus = Senryu.in_discover(params).timeline
+  end
+
+  def home
+    @senryus = Senryu.in_home(params, current_user).timeline
   end
 
   def new

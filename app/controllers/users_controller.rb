@@ -50,12 +50,8 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
 
-  def home
-    @senryus = Senryu.subscribed(current_user.following)
-  end
-
   def collection
-    @senryus = @user.favorite_senryus
+    @senryus = @user.in_collection(params).timeline
   end
 
   private

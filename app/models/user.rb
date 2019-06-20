@@ -17,6 +17,14 @@ class User < ApplicationRecord
 
   mount_uploader :icon, IconUploader
 
+  def in_collection(params)
+    if params[:senryu] && params[:senryu][:search_content]
+      favorite_senryus.search(params[:senryu][:search_content])
+    else
+      favorite_senryus
+    end
+  end
+
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
