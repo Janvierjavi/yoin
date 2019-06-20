@@ -23,3 +23,6 @@
 <%= link_to '一覧', discover_senryus_path %>
 <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
 </div>
+
+<%# 自身の投稿 #%>
+<%= render 'senryus/index' %>
