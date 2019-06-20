@@ -1,6 +1,10 @@
 class SenryusController < ApplicationController
   def discover
-    @senryus = Senryu.all
+    if params[:senryu] && params[:senryu][:search_content]
+      @senryus = Senryu.search(params[:senryu][:search_content])
+    else
+      @senryus = Senryu.all
+    end
   end
 
   def new
