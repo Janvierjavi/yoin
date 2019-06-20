@@ -50,10 +50,6 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
 
-  def home
-    @senryus = Senryu.in_home(params, current_user).timeline
-  end
-
   def collection
     @senryus = @user.in_collection(params).timeline
   end
