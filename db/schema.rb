@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_055538) do
+ActiveRecord::Schema.define(version: 2019_06_20_073033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_06_19_055538) do
     t.string "third_line", null: false
     t.bigint "user_id"
     t.integer "favorites_count"
+    t.index ["first_line"], name: "index_senryus_on_first_line"
+    t.index ["second_line"], name: "index_senryus_on_second_line"
+    t.index ["third_line"], name: "index_senryus_on_third_line"
     t.index ["user_id"], name: "index_senryus_on_user_id"
   end
 
