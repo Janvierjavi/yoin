@@ -57,3 +57,6 @@ gem 'fog-aws'
 
 # .env
 gem 'dotenv-rails'
+
+# for searching Senryu
+gem 'search_cop'

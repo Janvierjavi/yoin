@@ -155,6 +155,7 @@ GEM
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
+    polyglot (0.3.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -224,6 +225,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    search_cop (1.0.9)
+      treetop
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -244,6 +247,8 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    treetop (1.6.10)
+      polyglot (~> 0.3)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -289,6 +294,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rspec-rails
   sass-rails (~> 5.0)
+  search_cop
   selenium-webdriver
   spring
   spring-commands-rspec
