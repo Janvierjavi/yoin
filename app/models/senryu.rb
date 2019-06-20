@@ -2,6 +2,11 @@ class Senryu < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
+  validate :first_line_length
+  validate :second_line_length
+  validate :third_line_length
+  validate :other_than_hiragana
+
   scope :subscribed, -> (following) { where(user_id: following) }
 
   include SearchCop
@@ -28,11 +33,6 @@ class Senryu < ApplicationRecord
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
   end
-
-  validate :first_line_length
-  validate :second_line_length
-  validate :third_line_length
-  validate :other_than_hiragana
 
   SUTEGANA = ["ぁ", "ぃ", "ぅ", "ぇ", "ぉ", "ゃ", "ゅ", "ょ"]
   SUTEGANA.freeze
