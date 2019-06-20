@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @senryus = @user.senryus
+    @senryus = @user.senryus.timeline
   end
 
   def destroy
