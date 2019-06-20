@@ -9,6 +9,22 @@ class Senryu < ApplicationRecord
     attributes :first_line, :second_line, :third_line
   end
 
+  def self.in_discover(params)
+    params[:senryu] && params[:senryu][:search_content] ? search(params[:senryu][:search_content]) : all
+  end
+
+  def self.in_home(params, user)
+    if params[:senryu] && params[:senryu][:search_content]
+      subscribed(user.following).search(params[:senryu][:search_content])
+    else
+      subscribed(user.following)
+    end
+  end
+
+  def self.timeline
+    order(created_at: :desc)
+  end
+
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
   end

@@ -51,19 +51,11 @@ class UsersController < ApplicationController
   end
 
   def home
-    if params[:senryu] && params[:senryu][:search_content]
-      @senryus = Senryu.subscribed(current_user.following).search(params[:senryu][:search_content])
-    else
-      @senryus = Senryu.subscribed(current_user.following)
-    end
+    @senryus = Senryu.in_home(params, current_user).timeline
   end
 
   def collection
-    if params[:senryu] && params[:senryu][:search_content]
-      @senryus = @user.favorite_senryus.search(params[:senryu][:search_content])
-    else
-      @senryus = @user.favorite_senryus
-    end
+    @senryus = @user.in_collection(params).timeline
   end
 
   private

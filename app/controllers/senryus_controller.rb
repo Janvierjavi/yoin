@@ -1,10 +1,7 @@
 class SenryusController < ApplicationController
   def discover
-    if params[:senryu] && params[:senryu][:search_content]
-      @senryus = Senryu.search(params[:senryu][:search_content])
-    else
-      @senryus = Senryu.all
-    end
+    binding.pry
+    @senryus = Senryu.in_discover(params).timeline
   end
 
   def new
