@@ -4,6 +4,11 @@ class Senryu < ApplicationRecord
 
   scope :subscribed, -> (following) { where(user_id: following) }
 
+  include SearchCop
+  search_scope :search do
+    attributes :first_line, :second_line, :third_line
+  end
+
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
   end
