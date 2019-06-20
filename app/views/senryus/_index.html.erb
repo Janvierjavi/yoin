@@ -1,3 +1,23 @@
+<% if current_page?(controller: 'senryus', action: 'discover') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: discover_senryus_path) do |f| %>
+    <%= f.text_field :search_content %>
+    <%= f.hidden_field :search, value: 'true' %>
+    <%= f.submit '検索' %>
+  <% end %>
+<% elsif current_page?(controller: 'users', action: 'home') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: home_user_path(current_user.id)) do |f| %>
+    <%= f.text_field :search_content %>
+    <%= f.hidden_field :search, value: 'true' %>
+    <%= f.submit '検索' %>
+  <% end %>
+<% elsif current_page?(controller: 'users', action: 'collection') %>
+  <%= form_with(model: @senryus, local: true, method: :get, url: collection_user_path(@user.id)) do |f| %>
+    <%= f.text_field :search_content %>
+    <%= f.hidden_field :search, value: 'true' %>
+    <%= f.submit '検索' %>
+  <% end %>
+<% end %>
+
 <ul>
   <% @senryus.each do |senryu| %>
     <li>
