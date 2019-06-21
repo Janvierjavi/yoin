@@ -24,7 +24,7 @@ class SenryusController < ApplicationController
   def create
     @senryu = current_user.senryus.build(senryu_content)
     if @senryu.save
-      redirect_to senryus_url, notice: "posted successfully"
+      redirect_to home_senryus_url, notice: "posted successfully"
     else
       redirect_to new_senryu_url(senryu: senryu_params)
     end
@@ -33,7 +33,7 @@ class SenryusController < ApplicationController
   def destroy
     set_senryu
     @senryu.destroy
-    redirect_to senryus_url, notice: "deleted successfully"
+    redirect_to home_senryus_url, notice: "deleted successfully"
   end
 
   private

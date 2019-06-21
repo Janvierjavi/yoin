@@ -7,23 +7,23 @@ class Senryu < ApplicationRecord
   validate :third_line_length
   validate :other_than_hiragana
 
-  scope :subscribed, -> (following) { where(user_id: following) }
-
   include SearchCop
   search_scope :search do
     attributes :first_line, :second_line, :third_line
   end
 
-  def self.in_discover(params)
-    params[:senryu] && params[:senryu][:search_content] ? search(params[:senryu][:search_content]) : all
+  scope :subscribed_and_mine, -> (following, me) { where(user_id: following).or(Senryu.where(user_id: me)) }
+  
+  def self.in_home(params, me)
+    if params[:senryu] && params[:senryu][:search_content]
+      subscribed_and_mine(me.following, me).search(params[:senryu][:search_content])
+    else
+      subscribed_and_mine(me.following, me)
+    end
   end
 
-  def self.in_home(params, user)
-    if params[:senryu] && params[:senryu][:search_content]
-      subscribed(user.following).search(params[:senryu][:search_content])
-    else
-      subscribed(user.following)
-    end
+  def self.in_discover(params)
+    params[:senryu] && params[:senryu][:search_content] ? search(params[:senryu][:search_content]) : all
   end
 
   def self.timeline
