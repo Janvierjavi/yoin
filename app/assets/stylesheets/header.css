@@ -1,0 +1,86 @@
+.search-header {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+  height: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.search-header input {
+  width: 150px; 
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+	background-color:#5e616a;
+	border:none;
+	border-radius:3px;
+	color:#fff;
+	background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
+	background-repeat:no-repeat;
+	background-position:160px;
+	background-size:30px;
+}
+
+.search-header input::placeholder {
+  color: whitesmoke;
+}
+
+.home-header {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+  height: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.home-header h1{
+  display: inline;
+  position: relative;
+}
+
+.home-header i {
+  font-size: 24px;
+  position: absolute;
+  right: 18px;
+  cursor: pointer;
+}
+
+.acd-menu-item {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); 
+  text-align: right;
+  list-style-type: none;
+  font-size: 12px; 
+  letter-spacing: 1px;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  border-bottom-left-radius: 25px;
+  display: none;
+}
+
+.acd-menu-item.open {
+  display: block;
+}
+
+.acd-menu-item li {
+  padding:5px 10px;
+  border-bottom:1px solid #84b2e0;
+}
+
+.acd-menu-item li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+} 
