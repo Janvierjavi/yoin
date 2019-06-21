@@ -1,4 +1,4 @@
-<div class="search-header">
+<div class="header search-header">
   <%= form_with(model: @senryus, local: true, method: :get, url: discover_senryus_path) do |f| %>
     <input class="useFontAwesomeFamily" type="text" placeholder="けんさくする" name="senryu[search_content]" id="senryu_search_content">
   <% end %>

@@ -1,4 +1,4 @@
-.search-header {
+.header {
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
   display: flex;
   justify-content: center;
@@ -29,20 +29,6 @@
 
 .search-header input::placeholder {
   color: whitesmoke;
-}
-
-.home-header {
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 350px;
-  max-width: 100%;
-  height: 60px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  z-index: 1;
 }
 
 .home-header h1{
