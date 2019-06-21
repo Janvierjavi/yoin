@@ -6,7 +6,7 @@
       <%= senryu.favorites_count unless senryu.favorites_count == 0 || nil %>
     <% end %>
   <% else %>
-    <%= link_to senryu_favorite_path(senryu_id: senryu.id, id: senryu.favorites[0].id), id: "favorite_senryu_#{senryu.id}", method: :delete, remote: true do %>
+    <%= link_to senryu_favorite_path(senryu_id: senryu.id, id: senryu.favorites[0].id), id: "favorite_senryu_#{senryu.id}", class: "red-heart", method: :delete, remote: true do %>
       <i class="fas fa-heart"></i>
       <%= senryu.favorites_count %>
     <% end %>
