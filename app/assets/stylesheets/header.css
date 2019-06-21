@@ -70,4 +70,15 @@
 .acd-menu-item li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
-} 
+}
+
+.collection-header h3 {
+  position: relative;
+}
+
+.collection-header p {
+  font-size: 10px;
+  color: rgba(0,0,0,0.54);
+  position: absolute;
+  bottom: -6px;
+}
