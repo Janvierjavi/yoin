@@ -16,3 +16,83 @@
 .useFontAwesomeFamily::placeholder { /* Most modern browsers */
   font-family: "Font Awesome 5 Brands" !important;
 }
+
+.timeline-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-bottom: 50px;
+  font-size: 12px;
+}
+
+.timeline-content.left {
+  padding: 15px 20px 15px 70px;
+}
+
+.timeline-content.right {
+  align-self: flex-end;
+  padding: 15px 70px 15px 20px;
+}
+
+.timeline-content.right .author-name {
+  position: absolute;
+  right: 75px;
+}
+
+.profile-icon {
+  border-radius: 50%;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  width: 50px;
+  height: 50px;
+}
+
+.timeline-content.right .profile-icon {
+  left: auto;
+  right: 10px;
+}
+
+.timeline-content p {
+  font-weight: bold;
+  margin: 3px, 0, 3px;
+  
+}
+
+.timeline-content.left .favorite-button {
+  position: absolute;
+  right: 20px;
+}
+
+.timeline-content a {
+  text-decoration: none;
+  color:rgba(0,0,0,0.54);
+}
+
+.favorite-button .red-heart {
+  color: palevioletred;
+}
