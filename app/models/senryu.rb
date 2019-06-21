@@ -14,13 +14,14 @@ class Senryu < ApplicationRecord
 
   scope :subscribed_and_mine, -> (following, me) { where(user_id: following).or(Senryu.where(user_id: me)) }
   
-  def self.in_home(params, me)
-    if params[:senryu] && params[:senryu][:search_content]
-      subscribed_and_mine(me.following, me).search(params[:senryu][:search_content])
-    else
-      subscribed_and_mine(me.following, me)
-    end
-  end
+  # home画面での検索フォームは設置しない仕様に変更となったが、ロジックは再利用する可能性もあるため残しておく
+  # def self.in_home(params, me)
+  #   if params[:senryu] && params[:senryu][:search_content]
+  #     subscribed_and_mine(me.following, me).search(params[:senryu][:search_content])
+  #   else
+  #     subscribed_and_mine(me.following, me)
+  #   end
+  # end
 
   def self.in_discover(params)
     params[:senryu] && params[:senryu][:search_content] ? search(params[:senryu][:search_content]) : all

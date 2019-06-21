@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def collection
-    @senryus = @user.in_collection(params).timeline
+    @senryus = @user.favorite_senryus.timeline
   end
 
   private

@@ -17,13 +17,14 @@ class User < ApplicationRecord
 
   mount_uploader :icon, IconUploader
 
-  def in_collection(params)
-    if params[:senryu] && params[:senryu][:search_content]
-      favorite_senryus.search(params[:senryu][:search_content])
-    else
-      favorite_senryus
-    end
-  end
+  # collection画面での検索フォームは設置しない仕様に変更となったが、ロジックは再利用する可能性もあるため残しておく
+  # def in_collection(params)
+  #   if params[:senryu] && params[:senryu][:search_content]
+  #     favorite_senryus.search(params[:senryu][:search_content])
+  #   else
+  #     favorite_senryus
+  #   end
+  # end
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
