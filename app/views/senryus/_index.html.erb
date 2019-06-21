@@ -1,29 +1,45 @@
-<% if current_page?(controller: 'senryus', action: 'discover') %>
-  <%= form_with(model: @senryus, local: true, method: :get, url: discover_senryus_path) do |f| %>
-    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
+<div class="timeline-container">
+  <% if current_page?(controller: 'senryus', action: 'discover') %>
+    <%= form_with(model: @senryus, local: true, method: :get, url: discover_senryus_path) do |f| %>
+      <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
+    <% end %>
+  <% elsif current_page?(controller: 'senryus', action: 'home') %>
+    <%= form_with(model: @senryus, local: true, method: :get, url: home_senryus_path) do |f| %>
+      <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
+    <% end %>
+  <% elsif current_page?(controller: 'users', action: 'collection') %>
+    <%= form_with(model: @senryus, local: true, method: :get, url: collection_user_path(@user.id)) do |f| %>
+      <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content"> 
+    <% end %>
   <% end %>
-<% elsif current_page?(controller: 'senryus', action: 'home') %>
-  <%= form_with(model: @senryus, local: true, method: :get, url: home_senryus_path) do |f| %>
-    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content">
-  <% end %>
-<% elsif current_page?(controller: 'users', action: 'collection') %>
-  <%= form_with(model: @senryus, local: true, method: :get, url: collection_user_path(@user.id)) do |f| %>
-    <input class="useFontAwesomeFamily" type="text" placeholder="&#xf3eb; 検索する" name="senryu[search_content]" id="senryu_search_content"> 
-  <% end %>
-<% end %>
 
-<ul>
-  <% @senryus.each do |senryu| %>
-    <li>
-    
-      <%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %> by <%= senryu.user.name %> <%= senryu.created_at %>
 
-      <%= link_to '<delete>', senryu_path(senryu.id), method: :delete if current_user == senryu.user %>
 
-      <div id="favorites_buttons_<%= senryu.id %>">
-        <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
-      </div>
-
-    </li>
-  <% end %>
-</ul>
+  <ul class="timeline">
+    <% @senryus.each do |senryu| %>
+      <% if senryu.user == current_user %>
+        <li class="timeline-content right">
+          <span class="author-name"><%= senryu.user.name %></span>
+          <%= image_tag(senryu.user.icon.url, class: "profile-icon") %>
+          <span id="favorites_buttons_<%= senryu.id %>", class="favorite-button">
+            <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
+          </span>
+          <span>&nbsp;|&nbsp;</span>
+          <%= link_to senryu_path(senryu.id), class: "trash-bin",  method: :delete, data: { confirm: '本当にこの投稿を削除しますか？' } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+          <p><%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %></p>
+        </li>
+      <% else %>
+        <li class="timeline-content left">
+          <span class="author-name"><%= senryu.user.name %></span>
+          <%= image_tag(senryu.user.icon.url, class: "profile-icon") %>
+          <span id="favorites_buttons_<%= senryu.id %>", class="favorite-button">
+            <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
+          </span>
+          <p><%= senryu.first_line %>・<%= senryu.second_line %>・<%= senryu.third_line %></p>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
