@@ -19,8 +19,6 @@
 
 .timeline-container {
   background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 25px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
   overflow: hidden;
   padding: 15px;
   position: relative;
@@ -43,7 +41,8 @@
   border-radius: 50px;
   box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.5);
   position: relative;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   font-size: 12px;
 }
 
@@ -54,6 +53,7 @@
 .timeline-content.right {
   align-self: flex-end;
   padding: 15px 70px 15px 20px;
+  background-color: aquamarine;
 }
 
 .timeline-content.right .author-name {
@@ -78,9 +78,8 @@
 }
 
 .timeline-content p {
-  font-weight: bold;
+  font-weight: bolder;
   margin: 3px, 0, 3px;
-  
 }
 
 .timeline-content.left .favorite-button {

@@ -1,0 +1,63 @@
+<% if false %>
+<li><%= link_to 'ホーム', home_senryus_path %></li>
+<li><%= link_to '探す', discover_senryus_path %></li>
+<li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+<li><%= link_to '投稿する', new_senryu_path %></li>
+<li><%= link_to 'ログアウト', session_path(current_user.id), class: "logout", method: :delete %></li>
+<% end %>
+
+<%# 色は仮 #%>
+<div class="nav-bar">
+  <% if current_page?(controller: 'senryus', action: 'home') %>
+    <div class="tab active purple">
+      <%= link_to home_senryus_path do %>
+        <i class="fas fa-mountain"></i>
+      <% end %>
+      <p>Home</p>
+    </div>
+    <div class="tab pink">
+      <%= link_to discover_senryus_path do %>
+        <i class="fas fa-compass"></i>
+      <% end %>
+      <p>Discover</p>
+    </div>
+  <% elsif current_page?(controller: 'senryus', action: 'discover') %>
+    <div class="tab purple">
+      <%= link_to home_senryus_path do %>
+        <i class="fas fa-mountain"></i>
+      <% end %>
+      <p>Home</p>
+    </div>
+    <div class="tab active pink">
+      <%= link_to discover_senryus_path do %>
+        <i class="fas fa-compass"></i>
+      <% end %>
+      <p>Discover</p>
+    </div>
+  <% else %>
+    <div class="tab purple">
+      <%= link_to home_senryus_path do %>
+        <i class="fas fa-mountain"></i>
+      <% end %>
+      <p>Home</p>
+    </div>
+    <div class="tab pink">
+      <%= link_to discover_senryus_path do %>
+        <i class="fas fa-compass"></i>
+      <% end %>
+      <p>Discover</p>
+    </div>
+  <% end %>
+  <div class="tab yellow">
+    <%= link_to user_path(current_user.id) do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+    <p>Profile</p>
+  </div>
+  <div class="tab teal">
+    <%= link_to new_senryu_path do %>  
+      <i class="fas fa-pen-nib"></i>
+    <% end %>
+    <p>Compose</p>
+  </div>
+</div>
