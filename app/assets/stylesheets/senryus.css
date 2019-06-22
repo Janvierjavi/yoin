@@ -53,6 +53,7 @@
 .timeline-content.right {
   align-self: flex-end;
   padding: 15px 70px 15px 20px;
+  background-color: aquamarine;
 }
 
 .timeline-content.right .author-name {
