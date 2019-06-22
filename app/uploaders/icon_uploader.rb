@@ -3,7 +3,7 @@ class IconUploader < CarrierWave::Uploader::Base
   
   storage :fog
   
-  process :resize_to_limit => [50, 50]
+  process :resize_to_limit => [100, 100]
 
   def default_url
     "default_icon.png"
