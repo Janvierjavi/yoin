@@ -34,6 +34,19 @@
       <% end %>
       <p>Discover</p>
     </div>
+  <% else %>
+    <div class="tab purple">
+      <%= link_to home_senryus_path do %>
+        <i class="fas fa-mountain"></i>
+      <% end %>
+      <p>Home</p>
+    </div>
+    <div class="tab pink">
+      <%= link_to discover_senryus_path do %>
+        <i class="fas fa-compass"></i>
+      <% end %>
+      <p>Discover</p>
+    </div>
   <% end %>
   <div class="tab yellow">
     <%= link_to user_path(current_user.id) do %>
