@@ -169,3 +169,35 @@
 .user-header a {
   color: rgba(0, 0, 0, 0.87);
 }
+
+.relationship-header {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+  height: 49px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.relationship-numbers {
+  width: 175px;
+  height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.relationship-numbers.active {
+  border-bottom: 2px solid blue;
+}
+
+.relationship-numbers a {
+  text-decoration: none;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.87);
+}

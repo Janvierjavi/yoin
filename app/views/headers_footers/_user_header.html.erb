@@ -1,6 +1,9 @@
 <div class="user-header">
-  <%= link_to :back do %>
+  <%= link_to home_senryus_path do %>
     <i class="fas fa-long-arrow-alt-left">&nbsp;&nbsp;</i>
   <% end %>
   <p><%= @user.name %></p>  
 </div>
+<% unless current_page?(controller: 'users', action: 'show') %>
+  <%= render 'headers_footers/relationship_header' %>
+<% end %>
