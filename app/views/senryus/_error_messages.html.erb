@@ -1,0 +1,23 @@
+<div id="error_explanation">
+  <h4><%= @senryu_with_errors.errors.count %>つのエラーがあります</h4>
+  <ul>
+    <% @senryu_with_errors.errors.full_messages.each do |message| %>
+      <% if message.include?("捨て仮名") %>
+        <li><%= message[/.{3} : /] %><a class="sutegana-rule"></a></li>
+      <% else %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="sutegana-rule-explanation">
+  <h5>捨て仮名ルール</h5>
+  <p>捨て仮名(ァィゥェォャュョ)は</p>
+  <p>前の字と合わせて一音とします</p>
+  <a href="#" class="close-sutegana-rule-explanation">閉じる</a>
+</div>
+
+<script>
+  $('.sutegana-rule').html('<a href="#" class="sutegana-rule">捨て仮名ルール</a>')
+</script>
