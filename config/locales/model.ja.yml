@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      senryu: "５７５"
+    attributes:
+      senryu:
+        first_line: "一の句"
+        second_line: "二の句"
+        third_line: "三の句"
