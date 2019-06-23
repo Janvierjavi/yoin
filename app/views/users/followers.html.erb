@@ -1,6 +1,12 @@
-<h1>フォロワー</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to "#{user.name}", user_path(user.id) %></li>
-  <% end %>
-</ul>
+<%= render 'headers_footers/user_header' %>
+<% @users.each do |user| %>
+  <div class="relationship-list-outer">
+    <div class="user-info">
+    <%= link_to user_path(user.id), class: "profile-icon-link" do %>
+      <%= image_tag(user.icon.url, class: "relationship-profile-icon") %>
+    <% end %>
+    <%= link_to "#{user.name}", user_path(user.id), class: "" %>
+    </div>
+    <%= render partial: 'users/follow', locals: { user: user } unless current_user == user %>
+  </div>
+<% end %>

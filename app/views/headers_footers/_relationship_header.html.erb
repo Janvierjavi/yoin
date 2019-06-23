@@ -1,0 +1,25 @@
+<div class="relationship-header">
+  <% if current_page?(controller: 'users', action: 'following') %>
+    <div class="relationship-numbers active">
+      <%= link_to following_user_path(@user.id) do %>
+        <%= @user.following.size %>&nbsp;フォロー中
+      <% end %>
+    </div>
+    <div class="relationship-numbers">
+      <%= link_to followers_user_path(@user.id) do %>
+        <%= @user.followers.size %>&nbsp;フォロワー
+      <% end %>
+    </div>
+  <% elsif current_page?(controller: 'users', action: 'followers') %>
+    <div class="relationship-numbers">
+      <%= link_to following_user_path(@user.id) do %>
+        <%= @user.following.size %>&nbsp;フォロー中
+      <% end %>
+    </div>
+    <div class="relationship-numbers active">
+      <%= link_to followers_user_path(@user.id) do %>
+        <%= @user.followers.size %>&nbsp;フォロワー
+      <% end %>
+    </div>
+  <% end %>
+</div>

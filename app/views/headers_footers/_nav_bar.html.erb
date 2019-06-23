@@ -1,11 +1,3 @@
-<% if false %>
-<li><%= link_to 'ホーム', home_senryus_path %></li>
-<li><%= link_to '探す', discover_senryus_path %></li>
-<li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-<li><%= link_to '投稿する', new_senryu_path %></li>
-<li><%= link_to 'ログアウト', session_path(current_user.id), class: "logout", method: :delete %></li>
-<% end %>
-
 <%# 色は仮 #%>
 <div class="nav-bar">
   <% if current_page?(controller: 'senryus', action: 'home') %>
