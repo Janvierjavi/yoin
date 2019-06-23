@@ -1,0 +1,15 @@
+<div class="user-header">
+  <%= link_to home_senryus_path do %>
+    <i class="fas fa-long-arrow-alt-left">&nbsp;&nbsp;</i>
+  <% end %>
+  <p><%= @user.name %></p>  
+</div>
+<div class="profile-container">
+  <div class="profile-icon-wrapper">
+    <%= image_tag(@user.icon.url, class: "profile-icon") %>
+  </div>
+  <div class="profile-content">
+    <h4><%= @user.name %></h4>
+    <p><%= @user.bio %></p>
+  </div>
+</div>

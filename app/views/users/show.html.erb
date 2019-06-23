@@ -1,28 +1,31 @@
-<h1><%= @user.name %>のユーザーページ</h1>
-<div class="profile-img">
-  <%= image_tag(@user.icon.url) if @user.icon && @user.icon.url%><br />
+<%= render 'headers_footers/user_header' %>
+<div class="numbers-related-to-user">
+  <div class="number-linked-outer">
+    <%= link_to following_user_path(@user.id), class: "number-linked" do %>
+      <div><%= number_to_human(@user.following.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
+      <p>フォロー中</p>
+    <% end %>
+  </div>
+  <div class="number-linked-outer">
+    <%= link_to followers_user_path(@user.id), class: "number-linked" do %>
+      <div><%= number_to_human(@user.followers.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
+      <p>フォロワー</p>
+    <% end %>
+  </div>
+  <div class="number-linked-outer">
+    <%= link_to collection_user_path(@user.id), class: "number-linked" do %>
+      <div><%= number_to_human(@user.favorite_senryus.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
+      <p>コレクション</p>
+    <% end %>
+  </div>
 </div>
-<p><%= @user.bio %></p>
-
-<p>フォロー中</p>
-<%= link_to "#{@user.following.size}", following_user_path(@user.id) %>
-
-<p>フォロワー</p>
-<%= link_to "#{@user.followers.size}", followers_user_path(@user.id) %>
-
-<p>コレクション</p>
-<%= link_to "#{@user.favorite_senryus.size}", collection_user_path(@user.id) %>
-
-<%= render partial: 'users/follow', locals: { user: @user } unless current_user == @user %>
-
-<%# のちのち、以下は表示を制限する　とりあえず画面上で操作を行うためのリンク#%>
-<div>
-<%= link_to 'ログアウト', session_path(@user.id), method: :delete %>
-<%= link_to 'ホーム', home_senryus_path %>
-<%= link_to '投稿', new_senryu_path %>
-<%= link_to '一覧', discover_senryus_path %>
-<%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
-</div>
-
-<%# 自身の投稿 #%>
+<div class="button-in-profile-container">
+  <% if current_user == @user %>
+    <%= form_with(model: @user, local: true, url: edit_user_path(@user.id), method: :get) do |f| %>
+      <%= f.submit 'プロフィール編集', id: "button-in-profile" %>
+    <% end %>
+  <% else %>
+    <%= render partial: 'users/follow', locals: { user: @user } %>
+  <% end %>
+  </div>
 <%= render 'senryus/index' %>
