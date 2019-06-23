@@ -1,4 +1,13 @@
 <%= render 'headers_footers/user_header' %>
+<div class="profile-container">
+  <div class="profile-icon-wrapper">
+    <%= image_tag(@user.icon.url, class: "profile-icon") %>
+  </div>
+  <div class="profile-content">
+    <h4><%= @user.name %></h4>
+    <p><%= @user.bio %></p>
+  </div>
+</div>
 <div class="numbers-related-to-user">
   <div class="number-linked-outer">
     <%= link_to following_user_path(@user.id), class: "number-linked" do %>
