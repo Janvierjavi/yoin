@@ -60,31 +60,55 @@ class Senryu < ApplicationRecord
 
   def first_line_length
     if include_sutegana?(first_line)
-      errors.add(:first_line, "is the wrong length (should be #{5 + sutegana_length(first_line)} characters)") if first_line.length != (5 + sutegana_length(first_line))
+      errors.add(:first_line, ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします") if first_line.length != (5 + sutegana_length(first_line))
     else
-      errors.add(:first_line, 'is the wrong length (should be 5)') if first_line.length != 5
+      errors.add(:first_line, ': 5文字でお願いします') if first_line.length != 5
     end
   end
 
   def second_line_length
     if include_sutegana?(second_line)
-      errors.add(:second_line, "is the wrong length (should be #{7 + sutegana_length(second_line)} characters)") if second_line.length != (7 + sutegana_length(second_line))
+      errors.add(:second_line, ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします") if second_line.length != (7 + sutegana_length(second_line))
     else
-      errors.add(:second_line, 'is the wrong length (should be 7)') if second_line.length != 7
+      errors.add(:second_line, ': 7文字でお願いします') if second_line.length != 7
     end
   end
 
   def third_line_length
     if include_sutegana?(third_line)
-      errors.add(:third_line, "is the wrong length (should be #{5 + sutegana_length(third_line)} characters)") if third_line.length != (5 + sutegana_length(third_line))
+      errors.add(:third_line, ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします") if third_line.length != (5 + sutegana_length(third_line))
     else
-      errors.add(:third_line, 'is the wrong length (should be 5)') if third_line.length != 5
+      errors.add(:third_line, ': 5文字でお願いします') if third_line.length != 5
     end
   end
 
+  # def first_line_length
+  #   if include_sutegana?(first_line)
+  #     errors.add(:first_line, "is the wrong length (should be #{5 + sutegana_length(first_line)} characters)") if first_line.length != (5 + sutegana_length(first_line))
+  #   else
+  #     errors.add(:first_line, 'is the wrong length (should be 5)') if first_line.length != 5
+  #   end
+  # end
+
+  # def second_line_length
+  #   if include_sutegana?(second_line)
+  #     errors.add(:second_line, "is the wrong length (should be #{7 + sutegana_length(second_line)} characters)") if second_line.length != (7 + sutegana_length(second_line))
+  #   else
+  #     errors.add(:second_line, 'is the wrong length (should be 7)') if second_line.length != 7
+  #   end
+  # end
+
+  # def third_line_length
+  #   if include_sutegana?(third_line)
+  #     errors.add(:third_line, "is the wrong length (should be #{5 + sutegana_length(third_line)} characters)") if third_line.length != (5 + sutegana_length(third_line))
+  #   else
+  #     errors.add(:third_line, 'is the wrong length (should be 5)') if third_line.length != 5
+  #   end
+  # end
+
   def other_than_hiragana
     unless hiragana?(first_line + second_line + third_line)
-      errors[:base] << "ひらがな以外の文字があるため無効です"
+      errors[:base] << "ひらがなでお願いします"
     end
   end
 

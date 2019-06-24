@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <p><%= notice %></p>
+    
     <div class="general-container">
       <%= yield %>
     </div>
+    
+    <%= render 'headers_footers/notification_footer' %>
   </body>
 </html>
