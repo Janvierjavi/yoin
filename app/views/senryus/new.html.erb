@@ -1,6 +1,3 @@
-<%# 幅を出すために　仮 #%>
-<div class="header"></div>  
-
 <% if @senryu_with_errors.nil? %>
   <%
     @first_initial = first_initial
@@ -9,8 +6,13 @@
   %>
 <% end %>
 
-<h4>Each line you start with...</h4>
-<h1><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h1>
+<h4 class="create-new-intro">Each line you start with...</h4>
+
+  <h1><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h1>
+  <%= link_to  new_senryu_path do %>
+    <i class="fas fa-sync-alt refresh-initials"></i>
+  <% end %>
+
 
 <%= form_with(model: @senryu, local: true) do |f| %>
 
@@ -20,24 +22,27 @@
     <% end %>
   <% end %>
 
-  <div class="field">
-    <%= f.hidden_field :first_initial, value: "#{@first_initial}" %>
-    <span><%= @first_initial %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
-  </div>
-
-  <div class="field">
-    <%= f.hidden_field :second_initial, value: "#{@second_initial}" %>
-    <span><%= @second_initial %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
-  </div>
-
-  <div class="field">
-    <%= f.hidden_field :third_initial, value: "#{@third_initial}" %>
-    <span><%= @third_initial %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="create-new-card">
+    <div class="create-new-card-space"></div>
+    <div class="create-new-line-field">
+      <%= f.hidden_field :first_initial, value: "#{@first_initial}" %>
+      <span><%= @first_initial %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
+    </div>
+  
+    <div class="create-new-line-field">
+      <%= f.hidden_field :second_initial, value: "#{@second_initial}" %>
+      <span><%= @second_initial %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
+    </div>
+  
+    <div class="create-new-line-field">
+      <%= f.hidden_field :third_initial, value: "#{@third_initial}" %>
+      <span><%= @third_initial %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
+    </div>
+  
+    <div class="compose-action">
+      <%= f.submit 'つくる' %>
+    </div>
   </div>
 <% end %>
 
-<%= link_to 'Refresh', new_senryu_path %>
+<%= link_to '戻る', home_senryus_path, class: "back-from-create-new" %>

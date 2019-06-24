@@ -1,3 +1,5 @@
+/* ログインやサインアップのエラーも考えなければならない */
+
 #error_explanation {
   display: flex;
   flex-direction: column;
@@ -34,7 +36,7 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 200px;
+  top: 90px;
 }
 
 .sutegana-rule-explanation p {
