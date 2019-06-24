@@ -1,7 +1,16 @@
+<%# とりあえずの幅を出す #%>
 <%= form_with(model: @user, local: true) do |f| %>
+
+  <div class="decide-to-update-or-no">
+    <%= link_to user_path(@user.id) do %>
+      <i class="fas fa-long-arrow-alt-left">&nbsp;&nbsp;プロフィール編集</i>
+    <% end %>
+    <%= f.submit '完了'%>
+  </div>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @senryu from being saved:</h2> 
+      <h4><%= @user.errors.count %>つのエラーがあります</h4>
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,50 +19,51 @@
     </div>
   <% end %>
 
-  <div class="fiel icon-field">
-    <%= image_tag(@user.icon.url, class: "original-icon") if @user.icon && @user.icon.url %><br />
+  <div class="edit-icon-field">
+    <%= image_tag(@user.icon.url, class: "profile-icon") %>
+
     <div class="icon-preview"></div>
-    <%= f.label :icon %><br />
-    <%= f.file_field :icon, id: "select_icon" %>
+
+    <label for="select_icon">
+      プロフィール写真を変更
+      <%= f.file_field :icon, id: "select_icon" %>
+    </label>
+    
     <%= f.hidden_field :icon_cache %>
   </div>
-  
-  <div class="field">
+
+  <div class="edit-profile-field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="edit-profile-field">
     <%= f.label :bio %>
     <%= f.text_area :bio %>
   </div>
 
-  <%# Eメールとパスワードの再設定はアコーディオンで #%>
-  <% if false %>
+  <div class="edit-details">
+    <a href="#" class="open-edit-details">詳細設定</a>
+  </div>
 
-    <div class="field">
+  <div class="edit-details-content">
+    <div class="edit-profile-field">
       <%= f.label :email %>
       <%= f.email_field :email %>
     </div>
   
-    <div class="field">
-      <%= f.label :password %>
+    <div class="edit-profile-field">
+      <%= f.label '新しいパスワード' %>
       <%= f.password_field :password %>
     </div>
   
-    <div class="field">
-      <%= f.label :password_confirmation %>
+    <div class="edit-profile-field">
+      <%= f.label '新しいパスワードの確認' %>
       <%= f.password_field :password_confirmation %>
     </div>
 
-  <% end %> 
-
-  <div class="actions">
-    <%= f.submit %>
+    <%= link_to '退会する', user_path(current_user.id), method: :delete, data: { confirm: '本当に退会されますか？' } %>
   </div>
-
-  <%= link_to '退会する', user_path(current_user.id), method: :delete, data: { confirm: '本当に退会されますか？' } %>
-
 <% end %>
 
 <script>
@@ -63,7 +73,7 @@
       var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".icon-preview");
-        $original = $(".original-icon");
+        $original = $(".profile-icon");
       t = this; 
 
       // 画像ファイル以外の場合は何もしない
@@ -81,8 +91,7 @@
           $preview.append(
             $("<img>").attr({
               src: e.target.result,
-              width: "50px",
-              class: "icon-preview",
+              class: "icon-preview-img",
               title: file.name
             })
           );

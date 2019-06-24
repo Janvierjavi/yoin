@@ -129,3 +129,118 @@
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   cursor: pointer;
 }
+
+.decide-to-update-or-no {
+  /* background-color: rgba(0, 0, 0, 0); */
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+  width: 320px;
+  padding: 0px 15px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 49px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.decide-to-update-or-no a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+}
+
+.decide-to-update-or-no input {
+  border: none;
+  font-size: 14px;
+  width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.edit-icon-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.edit-icon-field label {
+  background-color: rgba(0, 0, 0, 0);
+  color: blue;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 20px 30px 0 30px;
+  display: inline-block;
+}
+.edit-icon-field label input {
+  display: none;
+}
+
+.icon-preview-img {
+  border-radius: 50px;
+  object-fit: cover;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.7);
+  height: 100px;
+  width: 100px;
+}
+
+.edit-profile-field {
+  width: 256px;
+  margin: 20px 47px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edit-profile-field label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.edit-profile-field input {
+  width: 250px;
+  font-size: 14px;
+}
+
+.edit-profile-field textarea {
+  width: 250px;
+  height: 86px;
+  font-size: 14px;
+}
+
+.edit-details {
+  width: 256px;
+  margin: 0 47px;
+  border-bottom: 1px solid rgba(0,0,0,0.54);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edit-details a {
+  text-decoration: none;
+  font-size: 14px;
+  color: blue;
+}
+
+.edit-details-content {
+  display: none;
+}
+
+.edit-details-content.open {
+  display: block;
+}
+
+.edit-details-content a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0 47px;
+}
