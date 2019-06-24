@@ -1,17 +1,31 @@
-<h1>ログインページ</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<%= link_to :back, class: "back-to-top" do %>
+  <i class="fas fa-chevron-left"></i>
+<% end %>
 
-  <div class="field">
+<div class="sign-up-title">
+  <h1>Welcome</h1>
+  <h1>Back</h1>
+</div>
+
+<div class="login-space"></div>
+
+<%= form_with(scope: :session, url: sessions_path, local: true, method: :post) do |f| %>
+  <div class="sign-up-field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email ,class: "sign-up-input" %>
+    <div class="underline"></div>
   </div>
-  
-  <div class="field">
+
+  <div class="sign-up-field">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password ,class: "sign-up-input" %>
+    <div class="underline"></div>
   </div>
-  
-  <div class="actions">
-    <%= f.submit "Log in" %>
+
+  <div class="sign-up-action">
+    <h2>Sign in</h2>
+    <%= button_tag type: 'submit', onclick: "link_to('#{sessions_path}')", method: :post, class: "round-shaped-submit", id: "log-in" do %>
+      <i class="fas fa-arrow-right"></i>
+    <% end %>
   </div>
 <% end %>

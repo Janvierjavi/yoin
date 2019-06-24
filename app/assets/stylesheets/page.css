@@ -282,8 +282,10 @@
   border: none;
   outline: 0;
   border-bottom: 1px solid #fff;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   min-width: 100%;
+  font-size: 14px;
+  color: #fff;
 }
 
 .underline {
@@ -326,4 +328,9 @@
   border: 3px solid #667eea;
   background: #fff;
   color: #667eea;
+}
+
+.login-space {
+  height: 146px;
+  margin: 0;
 }
