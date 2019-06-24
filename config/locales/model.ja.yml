@@ -2,8 +2,16 @@ ja:
   activerecord:
     models:
       senryu: "５７５"
+      user: "ユーザー"
     attributes:
       senryu:
         first_line: "一の句"
         second_line: "二の句"
         third_line: "三の句"
+      user:
+        name: "名前"
+        email: "Eメール"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        icon: "プロフィール画像"
+        bio: "自己紹介"
