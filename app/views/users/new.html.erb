@@ -1,37 +1,55 @@
-<h1>サインアップ</h1>
+<%= link_to :back, class: "back-to-top" do %>
+  <i class="fas fa-chevron-left"></i>
+<% end %>
+
+<div class="sign-up-title">
+  <h1>Create</h1>
+  <h1>Account</h1>
+</div>
+
 <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @senryu from being saved:</h2> 
+  <div id="error_explanation">
+    <h4><%= @user.errors.count %>つのエラーがあります</h4>
+    <div id="error_explanation_in_sign_up">
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
+  </div>
   <% end %>
   
-  <div class="field">
+  <div class="sign-up-field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,class: "sign-up-input"%>
+    <div class="underline"></div>
   </div>
 
-  <div class="field">
+  <div class="sign-up-field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email ,class: "sign-up-input" %>
+    <div class="underline"></div>
   </div>
 
-  <div class="field">
+  <div class="sign-up-field">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password ,class: "sign-up-input" %>
+    <div class="underline"></div>
   </div>
 
-  <div class="field">
+  <div class="sign-up-field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation ,class: "sign-up-input" %>
+    <div class="underline"></div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Create my account" %>
+  <div class="sign-up-action">
+    <h2>Sign up</h2>
+    <button type="submit" class="round-shaped-submit" id="sign-up">
+      <i class="fas fa-arrow-right"></i>
+    </button>
   </div>
+
 <% end %>
