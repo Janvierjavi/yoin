@@ -11,11 +11,11 @@
   margin: 6px 0;
 }
 
-/* #error_explanation ul {
+#error_explanation ul {
   font-size: 12px;
   width: 300px;
   padding: 0 0 0 50px;
-} */
+}
 
 #error_explanation_in_edit_profile {
   font-size: 12px;
