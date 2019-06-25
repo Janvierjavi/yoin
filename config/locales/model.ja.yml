@@ -3,6 +3,8 @@ ja:
     models:
       senryu: "５７５"
       user: "ユーザー"
+      favorite: "お気に入り"
+      relationship: "交友関係"
     attributes:
       senryu:
         first_line: "一の句"

@@ -12,26 +12,26 @@
   <div class="number-linked-outer">
     <%= link_to following_user_path(@user.id), class: "number-linked" do %>
       <div><%= number_to_human(@user.following.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
-      <p>フォロー中</p>
+      <p><%= I18n.t('views.following') %></p>
     <% end %>
   </div>
   <div class="number-linked-outer">
     <%= link_to followers_user_path(@user.id), class: "number-linked" do %>
       <div><%= number_to_human(@user.followers.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
-      <p>フォロワー</p>
+      <p><%= I18n.t('views.followers') %></p>
     <% end %>
   </div>
   <div class="number-linked-outer">
     <%= link_to collection_user_path(@user.id), class: "number-linked" do %>
       <div><%= number_to_human(@user.favorite_senryus.size, :units => {:hundred => "百",:thousand => "千", :million => "百万"}) %></div>
-      <p>コレクション</p>
+      <p><%= I18n.t('views.my_collection') %></p>
     <% end %>
   </div>
 </div>
 <div class="button-in-profile-container">
   <% if current_user == @user %>
     <%= form_with(model: @user, local: true, url: edit_user_path(@user.id), method: :get) do |f| %>
-      <%= f.submit 'プロフィール編集', id: "button-in-profile" %>
+      <%= f.submit I18n.t('views.editting_profile'), id: "button-in-profile" %>
     <% end %>
   <% else %>
     <%= render partial: 'users/follow', locals: { user: @user } %>

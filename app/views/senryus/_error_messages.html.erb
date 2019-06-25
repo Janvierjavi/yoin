@@ -1,5 +1,5 @@
 <div id="error_explanation">
-  <h5><%= @senryu_with_errors.errors.count %>つのエラーがあります</h5>
+  <h5><%= @senryu_with_errors.errors.count %><%= I18n.t('views.errors_count') %></h5>
   <ul id="error_explanation_in_create_new">
     <% @senryu_with_errors.errors.full_messages.each do |message| %>
       <% if message.include?("捨て仮名") %>
@@ -12,10 +12,12 @@
 </div>
 
 <div class="sutegana-rule-explanation">
-  <h6>捨て仮名ルール</h6>
-  <p>捨て仮名(ァィゥェォャュョ)は</p>
-  <p>前の字と合わせて一音とします</p>
-  <a href="#" class="close-sutegana-rule-explanation">閉じる</a>
+  <h6><%= I18n.t('views.sutegana_rule') %></h6>
+  <p><%= I18n.t('views.sutegana_rule_explanation_1') %></p>
+  <p><%= I18n.t('views.sutegana_rule_explanation_2') %></p>
+  <a href="#" class="close-sutegana-rule-explanation">
+    <%= I18n.t('views.close_sutegana_rule_explanation') %>
+  </a>
 </div>
 
 <script>

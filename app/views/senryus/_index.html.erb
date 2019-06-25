@@ -10,7 +10,8 @@
             <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
           </span>
           <span>&nbsp;|&nbsp;</span>
-          <%= link_to senryu_path(senryu.id), class: "trash-bin",  method: :delete, data: { confirm: '本当にこの投稿を削除しますか？' } do %>
+          <%= link_to senryu_path(senryu.id), 
+          class: "trash-bin", method: :delete, data: { confirm: I18n.t('views.deleting_post_confirmation') } do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
 

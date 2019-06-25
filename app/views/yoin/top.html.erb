@@ -15,11 +15,11 @@
 
 <div class="sign-x-in-top">
   <%= link_to new_user_path, class: "sign-x-button-in-top" do %>
-    サインアップ
+    <%= I18n.t('views.sign_up') %>
   <% end %>
 
   <%= link_to new_session_path, class: "sign-x-button-in-top moderate" do %>
-    サインイン
+    <%= I18n.t('views.sign_in') %>
   <% end %>
 </div>
 

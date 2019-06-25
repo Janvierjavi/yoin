@@ -3,14 +3,16 @@
 
   <div class="decide-to-update-or-no">
     <%= link_to user_path(@user.id) do %>
-      <i class="fas fa-long-arrow-alt-left">&nbsp;&nbsp;プロフィール編集</i>
+      <i class="fas fa-long-arrow-alt-left">
+        &nbsp;&nbsp;<%= I18n.t('views.editting_profile') %>
+      </i>
     <% end %>
-    <%= f.submit '完了'%>
+    <%= f.submit I18n.t('views.done')%>
   </div>
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h4><%= @user.errors.count %>つのエラーがあります</h4>
+      <h5><%= @user.errors.count %><%= I18n.t('views.errors_count') %></h5>
       <ul id="error_explanation_in_edit_profile">
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -25,7 +27,7 @@
     <div class="icon-preview"></div>
 
     <label for="select_icon">
-      プロフィール写真を変更
+      <%= I18n.t('views.change_profile_icon')%>
       <%= f.file_field :icon, id: "select_icon" %>
     </label>
     
@@ -43,7 +45,9 @@
   </div>
 
   <div class="edit-details">
-    <a href="#" class="open-edit-details">詳細設定</a>
+    <a href="#" class="open-edit-details">
+      <%= I18n.t('views.edit_details')%>
+    </a>
   </div>
 
   <div class="edit-details-content">
@@ -53,16 +57,16 @@
     </div>
   
     <div class="edit-profile-field">
-      <%= f.label '新しいパスワード' %>
+      <%= f.label I18n.t('views.new_password') %>
       <%= f.password_field :password %>
     </div>
   
     <div class="edit-profile-field">
-      <%= f.label '新しいパスワードの確認' %>
+      <%= f.label I18n.t('views.new_password_confirmation') %>
       <%= f.password_field :password_confirmation %>
     </div>
 
-    <%= link_to '退会する', user_path(current_user.id), method: :delete, data: { confirm: '本当に退会されますか？' } %>
+    <%= link_to I18n.t('views.withdraw'), user_path(current_user.id), method: :delete, data: { confirm: '本当に退会されますか？' } %>
   </div>
 <% end %>
 

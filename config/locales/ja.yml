@@ -7,6 +7,47 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  views:
+    sign_up: "サインアップ"
+    sign_in: "サインイン"
+    home: "ホーム"
+    discover: "探す"
+    my_page: "マイページ"
+    compose: "つくる"
+    logout: "ログアウト"
+    following: "フォロー中"
+    followers: "フォロワー"
+    to_follow: "フォローする"
+    quit_following: "フォローをやめる"
+    my_collection: "コレクション"
+    posts_you_liked: "「いいね」した投稿"
+    search_senryus: "けんさくする"
+    errors_count: "つのエラーがあります"
+    sutegana_rule: "捨て仮名ルール"
+    sutegana_rule_explanation_1: "捨て仮名(ァィゥェォャュョ)は"
+    sutegana_rule_explanation_2: "前の字と合わせて一音とします"
+    close_sutegana_rule_explanation: "閉じる"
+    deleting_post_confirmation: "本当にこの投稿を削除しますか？"
+    four_syllable: "ひらがな 4音"
+    six_syllable: "ひらがな 6音"
+    back: "戻る"
+    editting_profile: "プロフィール編集"
+    done: "完了"
+    change_profile_icon: "プロフィール写真を変更"
+    edit_details: "詳細設定"
+    new_password: "新しいパスワード"
+    new_password_confirmation: "新しいパスワードの確認"
+    withdraw: "退会する"
+  controllers:
+    notices:
+      login_required: "ログインしてください"
+      logged_in: "ログインしました"
+      login_failed: "ログインに失敗しました"
+      logged_out: "ログアウトしました"
+      posted_senryu: "投稿しました"
+      deleted_senryu: "投稿を削除しました"
+      editted_profile: "プロフィールを編集しました"
+      chao: "またね"
   date:
     abbr_day_names:
     - 日
@@ -133,6 +174,11 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      sutegana_rule: ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします"
+      five_char_limit: ": 5音でお願いします"
+      seven_char_limit: ": 7音でお願いします"
+      hiragana_only: "ひらがなでお願いします"
+      narcissism: "自分自身をフォローすることはできません"
     template:
       body: 次の項目を確認してください
       header:

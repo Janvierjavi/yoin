@@ -7,6 +7,6 @@ class Relationship < ApplicationRecord
   private
 
   def follow_myself
-    errors[:base] << "自分自身をフォローすることはできません" if follower_id == followed_id
+    errors[:base] << I18n.t('errors.messages.narcissism') if follower_id == followed_id
   end
 end

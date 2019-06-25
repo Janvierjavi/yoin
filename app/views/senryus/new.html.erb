@@ -28,23 +28,23 @@
     <div class="create-new-card-space"></div>
     <div class="create-new-line-field">
       <%= f.hidden_field :first_initial, value: "#{@first_initial}" %>
-      <div><%= @first_initial %></div><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
+      <div><%= @first_initial %></div><%= f.text_field :first_line, placeholder: I18n.t('views.four_syllable') %>
     </div>
   
     <div class="create-new-line-field">
       <%= f.hidden_field :second_initial, value: "#{@second_initial}" %>
-      <div><%= @second_initial %></div><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
+      <div><%= @second_initial %></div><%= f.text_field :second_line, placeholder: I18n.t('views.six_syllable') %>
     </div>
   
     <div class="create-new-line-field">
       <%= f.hidden_field :third_initial, value: "#{@third_initial}" %>
-      <div><%= @third_initial %></div><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
+      <div><%= @third_initial %></div><%= f.text_field :third_line, placeholder: I18n.t('views.four_syllable') %>
     </div>
   
     <div class="compose-action">
-      <%= f.submit 'つくる' %>
+      <%= f.submit I18n.t('views.compose') %>
     </div>
   </div>
 <% end %>
 
-<%= link_to '戻る', home_senryus_path, class: "back-from-create-new" %>
+<%= link_to I18n.t('views.back'), home_senryus_path, class: "back-from-create-new" %>
