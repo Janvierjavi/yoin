@@ -3,6 +3,7 @@
 body {
   color: rgba(0, 0, 0, 0.87);
   font-family: 'M PLUS 1p', sans-serif;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +18,9 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
+  min-width: 350px;
   min-height: 100vh;
+  overflow: scroll;
   position: relative;
 }
 
@@ -30,7 +33,8 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 320px;
+  margin: 0px;
+  width: 350px;
   padding: 0 15px;
   max-width: 100%;
   height: 24px;

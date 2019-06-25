@@ -23,6 +23,10 @@ module Yoin
         controller_specs: false,
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
+
+      config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+        html_tag
+      end
     end
   end
 end

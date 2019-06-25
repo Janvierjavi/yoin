@@ -6,9 +6,11 @@
   %>
 <% end %>
 
-<h4 class="create-new-intro">Each line you start with...</h4>
+<h6 class="create-new-intro">Each line you start with ...</h6>
 
-  <h1><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h1>
+<div class="three-random-initials">
+  <h3><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h3>
+</div>
   <%= link_to  new_senryu_path do %>
     <i class="fas fa-sync-alt refresh-initials"></i>
   <% end %>
@@ -26,17 +28,17 @@
     <div class="create-new-card-space"></div>
     <div class="create-new-line-field">
       <%= f.hidden_field :first_initial, value: "#{@first_initial}" %>
-      <span><%= @first_initial %></span><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
+      <div><%= @first_initial %></div><%= f.text_field :first_line, placeholder: "ひらがな4文字" %>
     </div>
   
     <div class="create-new-line-field">
       <%= f.hidden_field :second_initial, value: "#{@second_initial}" %>
-      <span><%= @second_initial %></span><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
+      <div><%= @second_initial %></div><%= f.text_field :second_line, placeholder: "ひらがな6文字" %>
     </div>
   
     <div class="create-new-line-field">
       <%= f.hidden_field :third_initial, value: "#{@third_initial}" %>
-      <span><%= @third_initial %></span><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
+      <div><%= @third_initial %></div><%= f.text_field :third_line, placeholder: "ひらがな4文字" %>
     </div>
   
     <div class="compose-action">
