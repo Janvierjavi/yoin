@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless current_user
-      redirect_to new_session_url, notice: 'ログインしてください'
+      redirect_to new_session_url, notice: I18n.t('controllers.notices.login_required')
     end
   end
 end

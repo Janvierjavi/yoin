@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       # とりあえずリダイレクト
       session[:user_id] = @user.id
-      redirect_to user_url(@user.id), notice: "ログインに成功しました"
+      redirect_to user_url(@user.id), notice: I18n.t('controllers.notices.logged_in')
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_url(current_user.id), notice: 'プロフィールを編集しました'
+      redirect_to user_url(current_user.id), notice: I18n.t('controllers.notices.editted_profile')
     else
       render 'edit'
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to new_user_url, notice: "またね"
+    redirect_to new_user_url, notice: I18n.t('controllers.notices.chao')
   end
 
   def following

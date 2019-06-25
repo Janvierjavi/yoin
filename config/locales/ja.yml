@@ -7,6 +7,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  controllers:
+    notices:
+      login_required: "ログインしてください"
+      logged_in: "ログインしました"
+      login_failed: "ログインに失敗しました"
+      logged_out: "ログアウトしました"
+      posted_senryu: "投稿しました"
+      deleted_senryu: "投稿を削除しました"
+      editted_profile: "プロフィールを編集しました"
+      chao: "またね"
   date:
     abbr_day_names:
     - 日
