@@ -147,6 +147,7 @@ ja:
       five_char_limit: ": 5音でお願いします"
       seven_char_limit: ": 7音でお願いします"
       hiragana_only: "ひらがなでお願いします"
+      narcissism: "自分自身をフォローすることはできません"
     template:
       body: 次の項目を確認してください
       header:
