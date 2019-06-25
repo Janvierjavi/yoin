@@ -36,6 +36,7 @@
 }
 
 .timeline-content {
+  width: 290px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50px;
   box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.5);
@@ -76,9 +77,21 @@
   right: 10px;
 }
 
-.timeline-content p {
+.posted-senryu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+
+.posted-senryu-others {
+  display: flex;
+  flex-direction: column;
+  /* padding-right: px; */
+}
+
+.posted-senryu-line {
   font-weight: bolder;
-  margin: 3px, 0, 3px;
+  margin: 2px 0 0 0;
 }
 
 .timeline-content.left .favorite-button {
