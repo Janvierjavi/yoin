@@ -10,7 +10,7 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h5><%= @user.errors.count %>つのエラーがあります</h5>
+    <h5><%= @user.errors.count %><%= I18n.t('views.errors_count') %></h5>
     <div id="error_explanation_in_sign_up">
       <ul>
       <% @user.errors.full_messages.each do |message| %>

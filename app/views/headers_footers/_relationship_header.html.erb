@@ -2,23 +2,23 @@
   <% if current_page?(controller: 'users', action: 'following') %>
     <div class="relationship-numbers active">
       <%= link_to following_user_path(@user.id) do %>
-        <%= @user.following.size %>&nbsp;フォロー中
+        <%= @user.following.size %>&nbsp;<%= I18n.t('views.following') %>
       <% end %>
     </div>
     <div class="relationship-numbers">
       <%= link_to followers_user_path(@user.id) do %>
-        <%= @user.followers.size %>&nbsp;フォロワー
+        <%= @user.followers.size %>&nbsp;<%= I18n.t('views.followers') %>
       <% end %>
     </div>
   <% elsif current_page?(controller: 'users', action: 'followers') %>
     <div class="relationship-numbers">
       <%= link_to following_user_path(@user.id) do %>
-        <%= @user.following.size %>&nbsp;フォロー中
+        <%= @user.following.size %>&nbsp;<%= I18n.t('views.following') %>
       <% end %>
     </div>
     <div class="relationship-numbers active">
       <%= link_to followers_user_path(@user.id) do %>
-        <%= @user.followers.size %>&nbsp;フォロワー
+        <%= @user.followers.size %>&nbsp;<%= I18n.t('views.followers') %>
       <% end %>
     </div>
   <% end %>
