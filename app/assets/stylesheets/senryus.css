@@ -97,19 +97,26 @@
 
 .create-new-intro {
   width: 210px;
-  padding: 50px 70px 0 70px; 
-  margin: 0;
+  margin: 50px 70px 30px 70px; 
+}
+
+.three-random-initials h3 {
+  width: 350px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .refresh-initials {
   position: absolute;
-  left: 270px;
-  top: 111px;
+  left: 259px;
+  top: 119px;
 }
 
 .create-new-card {
   width: 250px;
-  margin: 0 50px;
+  margin: 20px 50px;
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -126,20 +133,26 @@
 
 .create-new-line-field {
   width: 200px;
-  padding: 0px 25px 15px;
+  margin: 0px 25px 15px;
   display: flex;
   justify-content: center;
 }
 
-.create-new-line-field span {
-  width: 23px;
-  height: 23px;
+.create-new-line-field div {
+  width: 25px;
+  height: 25px;
   border: 1px solid rgba(0,0,0,0.54);
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgba(0,0,0,0.54)
+}
+
+.create-new-line-field input {
+  width: 150px;
+  font-size: 14px;
+  border: 1px solid rgba(0,0,0,0.54)
 }
 
 .create-new-line-field input::placeholder {

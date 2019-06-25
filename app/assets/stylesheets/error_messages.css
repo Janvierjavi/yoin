@@ -5,16 +5,17 @@
   flex-direction: column;
   align-items: center;
   width: 350px;
+  margin: 20px 0;
 }
 
-#error_explanation h4 {
+#error_explanation h5 {
   margin: 6px 0;
 }
 
 #error_explanation_in_sign_up ul {
   font-size: 12px;
   width: 300px;
-  padding: 0 0 0 50px;
+  margin: 0 0 0 50px;
 }
 
 #error_explanation_in_edit_profile {
@@ -25,8 +26,9 @@
 
 #error_explanation_in_create_new {
   font-size: 12px;
-  width: 164px;
-  padding: 0 93px;
+  width: 200px;
+  margin: 0 75px;
+  padding-left: 30px;
 }
 
 .sutegana-rule a {
@@ -49,6 +51,10 @@
   align-items: center;
   position: absolute;
   top: 90px;
+}
+
+.sutegana-rule-explanation h6 {
+  margin: 20px;
 }
 
 .sutegana-rule-explanation p {

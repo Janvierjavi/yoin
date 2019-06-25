@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 350px;
-  max-width: 100%;
+  min-width: 100%;
   height: 49px;
   position: -webkit-sticky;
   position: sticky;
@@ -13,14 +13,15 @@
 }
 
 .search-header input {
-  width: 150px; 
+  width: 200px; 
   height: 30px;
   padding-left: 20px;
   padding-right: 20px;
 	background-color:#5e616a;
 	border:none;
 	border-radius:3px;
-	color:#fff;
+  color:#fff;
+  font-size: 12px;
 	background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
 	background-repeat:no-repeat;
 	background-position:160px;
@@ -28,7 +29,8 @@
 }
 
 .search-header input::placeholder {
-  color: whitesmoke;
+  color: #fff;
+  text-align: center;
 }
 
 .home-header h1{
@@ -53,7 +55,7 @@
   padding: 15px;
   position: absolute;
   right: 0;
-  top: 75px;
+  top: 90px;
   border-bottom-left-radius: 25px;
   display: none;
 }
@@ -72,7 +74,7 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.collection-header h3 {
+.collection-header h5 {
   position: relative;
 }
 
@@ -116,6 +118,7 @@
 .tab p {
   overflow: hidden;
   max-width: 0;
+  margin: 0;
 }
 
 .tab.active p {
@@ -151,7 +154,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 320px;
+  margin: 0px;
+  width: 350px;
   padding: 0 15px;
   max-width: 100%;
   height: 49px;
@@ -164,6 +168,7 @@
 .user-header p {
   font-weight: bold;
   font-size: 14px;
+  margin: 0;
 }
 
 .user-header a {
