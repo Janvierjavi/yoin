@@ -334,3 +334,102 @@
   height: 146px;
   margin: 0;
 }
+
+.top-logo {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 70px;
+  width: 320px;
+  padding: 30px 15px 15px 15px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.top-logo-shadow {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 70px;
+  width: 320px;
+  padding: 30px 15px 15px 15px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: #667eea;
+  position: absolute;
+  top: 6px;
+}
+
+.top-tanka {
+  width: 200px;
+  /* height: 198px; */
+  margin: 0 30px 0 120px;
+  position: relative;
+}
+
+.top-tanka-line {
+  font-size: 14px;
+  margin: 13px 0;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.top-tanka-line.hide {
+  display: none;
+}
+
+.tanka-initial {
+  border: 1px solid rgba(0,0,0,0.54);
+  width: 24px;
+  height: 24px;
+  border-radius: 50px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kwsk {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.kwsk.hide {
+  display: none;
+}
+
+.mars {
+  width: 200px;
+  height: 100px;
+  -webkit-clip-path: circle(50.0% at 50% 100%);
+  clip-path: circle(50.0% at 50% 100%);
+  background: #FF3F53;
+  -webkit-filter: blur(50px);
+  filter: blur(50px);
+}
+
+.sign-x-in-top {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-x-button-in-top {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  margin: 15px;
+  width: 180px;
+  height: 40px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3F4A8C;
+}
+
+.sign-x-button-in-top.moderate {
+  color: #3F4A8C;
+  background: transparent;
+}

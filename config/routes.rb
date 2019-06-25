@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'yoin/top'
+  root 'yoin#top'
   resources :users, only: %w(new create edit update show destroy) do
     member do
       get :following, :followers, :collection
