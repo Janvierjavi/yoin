@@ -133,6 +133,10 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      sutegana_rule: ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします"
+      five_char_limit: ": 5音でお願いします"
+      seven_char_limit: ": 7音でお願いします"
+      hiragana_only: "ひらがなでお願いします"
     template:
       body: 次の項目を確認してください
       header:
