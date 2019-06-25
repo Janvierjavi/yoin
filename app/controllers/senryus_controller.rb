@@ -4,7 +4,7 @@ class SenryusController < ApplicationController
   end
 
   def home
-    @senryus = Senryu.subscribed_and_mine(current_user.following, current_user).timeline
+    @senryus = Senryu.all.includes(:user, :favorites).subscribed_and_mine(current_user.following, current_user).timeline
   end
 
   def new
