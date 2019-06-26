@@ -23,8 +23,10 @@ class Senryu < ApplicationRecord
   #   end
   # end
 
+  
   def self.in_discover(params)
-    params[:senryu] && params[:senryu][:search_content] ? all.includes(:user, :favorites).search(params[:senryu][:search_content]) : all.includes(:user, :favorites)
+    params.dig(:senryu, :search_content) ? 
+    all.includes(:user, :favorites).search(params.dig(:senryu, :search_content)) : all.includes(:user, :favorites)
   end
 
   def self.timeline
