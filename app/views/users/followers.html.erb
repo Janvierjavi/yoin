@@ -5,7 +5,7 @@
     <%= link_to user_path(user.id), class: "profile-icon-link" do %>
       <%= image_tag(user.icon.url, class: "relationship-profile-icon") %>
     <% end %>
-    <%= link_to "#{user.name}", user_path(user.id), class: "" %>
+    <%= link_to "#{user.name}", user_path(user.id), class: "user-name-in-relationship" %>
     </div>
     <%= render partial: 'users/follow', locals: { user: user } unless current_user == user %>
   </div>

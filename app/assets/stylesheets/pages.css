@@ -105,6 +105,10 @@
   color: #fff;
 }
 
+.user-name-in-relationship {
+  font-size: 12px;
+}
+
 .profile-icon-link {
   border-radius: 50px;
   height: 50px;
