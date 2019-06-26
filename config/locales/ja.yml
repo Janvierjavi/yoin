@@ -38,6 +38,9 @@ ja:
     new_password: "新しいパスワード"
     new_password_confirmation: "新しいパスワードの確認"
     withdraw: "退会する"
+    user_name_char_limit: "10文字以内"
+    user_bio_char_limit: "150文字以内"
+    minimum_password_length: "6文字以上"
   controllers:
     notices:
       login_required: "ログインしてください"
