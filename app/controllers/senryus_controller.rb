@@ -13,9 +13,9 @@ class SenryusController < ApplicationController
       @senryu_with_errors.save
       @senryu = current_user.senryus.build(senryu_content_without_initial)
       
-      @first_initial = params[:senryu][:first_initial]
-      @second_initial = params[:senryu][:second_initial]
-      @third_initial = params[:senryu][:third_initial]
+      @first_initial = params.dig(:senryu, :first_initial)
+      @second_initial = params.dig(:senryu, :second_initial)
+      @third_initial = params.dig(:senryu, :third_initial)
     else
       @senryu = Senryu.new
     end
