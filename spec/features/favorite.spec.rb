@@ -10,7 +10,7 @@ RSpec.feature Favorite, type: :feature do
     fill_in 'session[email]', with: @test_user_01.email
     fill_in 'session[password]', with: 'password'
     
-    click_on 'Log in'
+    click_button 'log-in'
 
     visit discover_senryus_path
   end
