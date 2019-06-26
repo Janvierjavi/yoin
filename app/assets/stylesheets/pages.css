@@ -26,8 +26,9 @@
   color: #fff;
 }
 
-.profile-content h5 {
+.profile-content h6 {
   margin: 10px 0 0;
+  font-weight: bold;
 }
 
 .profile-content p {
@@ -132,7 +133,7 @@
   /* background-color: rgba(0, 0, 0, 0); */
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
   width: 350px;
-  padding: 0px 15px;
+  padding: 0px 30px;
   margin: 0;
   max-width: 100%;
   display: flex;
@@ -149,6 +150,8 @@
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
   font-size: 14px;
+  width: 160px;
+  cursor: pointer;
 }
 
 .decide-to-update-or-no input {
