@@ -69,6 +69,21 @@ RSpec.feature User, type: :feature do
     expect(current_path).to eq new_user_path
   end
 
+  scenario "サインアップができる(サインアップ後自動ログイン)" do
+    visit new_user_path
+
+    fill_in 'user[name]', with: "taro"
+    fill_in 'user[email]', with: "taro@icloud.com"
+    fill_in 'user[password]', with: "password"
+    fill_in 'user[password_confirmation]', with: "password"
+
+    click_button 'sign-up'
+
+    expect(page).to have_content 'ログインしました'
+    
+    visit home_senryus_path
+  end
+
   scenario 'ログイン中はサインアップページにアクセスできない(マイページに遷移させる)' do
     login_as_test_user_01
 
