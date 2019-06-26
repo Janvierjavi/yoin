@@ -15,6 +15,23 @@ RSpec.feature User, type: :feature do
     click_button 'log-in'
   end
 
+  scenario 'ログインができる' do
+    login_as_test_user_01
+
+    expect(page).to have_content 'ログインしました'
+  end
+
+  scenario 'メールアドレスとパスワードの組み合わせが正しくなければログインできない' do
+    visit new_session_path
+
+    fill_in 'session[email]', with: @test_user_01.email
+    fill_in 'session[password]', with: 'passwordo'
+
+    click_button 'log-in'
+
+    expect(page).to have_content 'ログインに失敗しました'
+  end
+
   scenario 'ログインしていないユーザーはトップ/サインアップ/ログイン画面以外のいかなるページにもアクセスできない' do
     # home画面
     visit home_senryus_path
