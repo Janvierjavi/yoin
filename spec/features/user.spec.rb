@@ -12,12 +12,32 @@ RSpec.feature User, type: :feature do
     fill_in 'session[email]', with: @test_user_01.email
     fill_in 'session[password]', with: 'password'
     
-    click_on 'Log in'
+    click_button 'log-in'
   end
 
-  scenario 'ログインしていないユーザーはサインアップ・ログインページ以外のいかなるページにもアクセスできない' do
-    # 全575一覧
+  scenario 'ログインしていないユーザーはトップ/サインアップ/ログイン画面以外のいかなるページにもアクセスできない' do
+    # home画面
+    visit home_senryus_path
+    expect(page).to have_content 'ログインしてください'
+    expect(current_path).to eq new_session_path
+    
+    # discover画面
     visit discover_senryus_path
+    expect(page).to have_content 'ログインしてください'
+    expect(current_path).to eq new_session_path
+
+    # フォロー中ユーザーリスト画面
+    visit following_user_path(@test_user_01.id)
+    expect(page).to have_content 'ログインしてください'
+    expect(current_path).to eq new_session_path
+
+    # collection画面
+    visit collection_user_path(@test_user_01.id)
+    expect(page).to have_content 'ログインしてください'
+    expect(current_path).to eq new_session_path
+
+    # フォロワーリスト画面
+    visit followers_user_path(@test_user_01.id)
     expect(page).to have_content 'ログインしてください'
     expect(current_path).to eq new_session_path
 
@@ -35,6 +55,10 @@ RSpec.feature User, type: :feature do
     visit edit_user_path(@test_user_01.id)
     expect(page).to have_content 'ログインしてください'
     expect(current_path).to eq new_session_path
+
+    # トップページ（アクセス可）
+    visit yoin_top_path
+    expect(current_path).to eq yoin_top_path
 
     # サインアップページ（アクセス可）
     visit new_session_path
@@ -56,7 +80,7 @@ RSpec.feature User, type: :feature do
   scenario 'プロフィール編集でプロフィール画像の設定、名前の変更、自己紹介文の追加ができる' do
     login_as_test_user_01
 
-    expect(current_path).to eq user_path(@test_user_01.id)
+    visit user_path(@test_user_01.id)
 
     expect(page).not_to have_content 'Yohei'
     expect(page).not_to have_content 'Hello'
@@ -67,9 +91,9 @@ RSpec.feature User, type: :feature do
     fill_in 'user[name]', with: 'Yohei'
     fill_in 'user[bio]', with: 'Hello'
 
-    click_on 'Update User'
+    click_on '完了'
 
-    expect(page).to have_css '.profile-img'
+    expect(page).to have_css '.profile-icon'
     expect(page).to have_content 'Yohei'
     expect(page).to have_content 'Hello'
   end
