@@ -30,6 +30,7 @@
   - 投稿者のみ実行可能
 * お気に入り機能
 * フォロー機能
+* 投稿検索機能
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1Q9W6ItcnblGbpJCEGqY3b9TDbV4O9-h0gyI_apMzfA4/edit?usp=sharing

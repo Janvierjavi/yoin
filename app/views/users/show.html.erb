@@ -31,7 +31,7 @@
 <div class="button-in-profile-container">
   <% if current_user == @user %>
     <%= form_with(model: @user, local: true, url: edit_user_path(@user.id), method: :get) do |f| %>
-      <%= f.submit I18n.t('views.editting_profile'), id: "button-in-profile" %>
+      <%= f.submit I18n.t('views.editting_profile'), id: "button-in-profile", class: "edit-profile-button" %>
     <% end %>
   <% else %>
     <%= render partial: 'users/follow', locals: { user: @user } %>

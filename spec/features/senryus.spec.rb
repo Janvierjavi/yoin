@@ -21,32 +21,39 @@ RSpec.feature Senryu, type: :feature do
     fill_in 'session[email]', with: @user1.email
     fill_in 'session[password]', with: 'password'
   
-    click_on 'Log in'
+    click_button 'log-in'
+  end
+
+  scenario '575を投稿できる' do
+    visit new_senryu_path
+
+    fill_in 'senryu[first_line]', with: 'かかかか'
+    fill_in 'senryu[second_line]', with: 'かかかかかか'
+    fill_in 'senryu[third_line]', with: 'かかかか'
+
+    click_on 'つくる'
+
+    expect(page).to have_content '投稿しました'
+  end
+
+  scenario '自分の投稿を削除できる' do
+    visit home_senryus_path
+
+    page.find("#delete_senryu_#{@senryu1.id}").click
+
+    expect(page).to have_content '投稿を削除しました'
+    expect(page).not_to have_text /.+あああああ.+/
+  end
+
+  scenario '他人の投稿は削除できない(削除ボタンの非表示)' do
+    visit home_senryus_path
+    
+    expect(page).not_to have_selector "#delete_senryu_#{@senryu2.id}"
+    expect(page).not_to have_selector "#delete_senryu_#{@senryu3.id}"
   end
 
   scenario 'Discoverで検索機能が正しく機能する', js: true do
     visit discover_senryus_path
-
-    fill_in 'senryu[search_content]', with: 'あ'
-    find('#senryu_search_content').native.send_key(:Enter)
-
-    expect(page).to have_text /.+あああああ.+/
-    expect(page).not_to have_text /.+いいいいい.+/
-    expect(page).not_to have_text /.+ううううう.+/
-  end
-
-  scenario 'Homeで検索機能が正しく機能する', js: true do
-    visit home_senryus_path
-
-    fill_in 'senryu[search_content]', with: 'う'
-    find('#senryu_search_content').native.send_key(:Enter)
-
-    expect(page).to have_text /.+ううううう.+/
-    expect(page).not_to have_text /.+いいいいい.+/
-  end
-
-  scenario 'Collectionで検索機能が正しく機能する', js: true do
-    visit collection_user_path(@user1.id)
 
     fill_in 'senryu[search_content]', with: 'あ'
     find('#senryu_search_content').native.send_key(:Enter)

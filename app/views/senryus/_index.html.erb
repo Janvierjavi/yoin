@@ -5,13 +5,15 @@
         <li class="timeline-content right">
 
           <%= link_to "#{senryu.user.name}", user_path(senryu.user.id), class: "author-name" %>
+
           <%= image_tag(senryu.user.icon.url, class: "timeline-profile-icon") %>
+
           <span id="favorites_buttons_<%= senryu.id %>", class="favorite-button">
             <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
           </span>
           <span>&nbsp;|&nbsp;</span>
           <%= link_to senryu_path(senryu.id), 
-          class: "trash-bin", method: :delete, data: { confirm: I18n.t('views.deleting_post_confirmation') } do %>
+          id: "delete_senryu_#{senryu.id}", method: :delete, data: { confirm: I18n.t('views.deleting_post_confirmation') } do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
 
@@ -32,7 +34,9 @@
         <li class="timeline-content left">
           
           <%= link_to "#{senryu.user.name}", user_path(senryu.user.id), class: "author-name" %>
+
           <%= image_tag(senryu.user.icon.url, class: "timeline-profile-icon") %>
+          
           <span id="favorites_buttons_<%= senryu.id %>", class="favorite-button">
             <%= render partial: 'favorites/favorite', locals: { senryu: senryu } %>
           </span>
