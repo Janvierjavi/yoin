@@ -172,11 +172,14 @@
 
 .edit-icon-field label {
   background-color: rgba(0, 0, 0, 0);
-  color: blue;
-  font-size: 14px;
+  color: skyblue;
+  font-size: 12px;
   cursor: pointer;
-  padding: 20px 30px 0 30px;
-  display: inline-block;
+  margin: 20px 30px 0 30px;
+  width: 214px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .edit-icon-field label input {
   display: none;
@@ -225,9 +228,10 @@
 
 .edit-details a {
   text-decoration: none;
-  font-size: 14px;
-  color: blue;
+  font-size: 12px;
+  color: skyblue;
   cursor: pointer;
+  width: 100px;
 }
 
 .edit-details-content {
