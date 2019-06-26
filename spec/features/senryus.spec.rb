@@ -24,6 +24,18 @@ RSpec.feature Senryu, type: :feature do
     click_button 'log-in'
   end
 
+  scenario '575を投稿できる' do
+    visit new_senryu_path
+
+    fill_in 'senryu[first_line]', with: 'かかかか'
+    fill_in 'senryu[second_line]', with: 'かかかかかか'
+    fill_in 'senryu[third_line]', with: 'かかかか'
+
+    click_on 'つくる'
+
+    expect(page).to have_content '投稿しました'
+  end
+
   scenario 'Discoverで検索機能が正しく機能する', js: true do
     visit discover_senryus_path
 
@@ -34,5 +46,4 @@ RSpec.feature Senryu, type: :feature do
     expect(page).not_to have_text /.+いいいいい.+/
     expect(page).not_to have_text /.+ううううう.+/
   end
-
 end
