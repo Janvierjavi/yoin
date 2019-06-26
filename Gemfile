@@ -32,6 +32,11 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -64,3 +69,9 @@ gem 'search_cop'
 
 # Fake users
 gem 'faker'
+
+# アプリケーションサーバ
+gem 'unicorn' 
+
+# デプロイ時に必要
+gem 'mini_racer', platforms: :ruby 
