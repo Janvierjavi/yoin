@@ -61,3 +61,6 @@ gem 'dotenv-rails'
 
 # for searching Senryu
 gem 'search_cop'
+
+# Fake users
+gem 'faker'
