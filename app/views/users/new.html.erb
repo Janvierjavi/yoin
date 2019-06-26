@@ -23,7 +23,7 @@
   
   <div class="sign-up-field">
     <%= f.label :name %>
-    <%= f.text_field :name ,class: "sign-up-input"%>
+    <%= f.text_field :name ,class: "sign-up-input", placeholder: I18n.t('views.user_name_char_limit')%>
     <div class="underline"></div>
   </div>
 
@@ -35,7 +35,7 @@
 
   <div class="sign-up-field">
     <%= f.label :password %>
-    <%= f.password_field :password ,class: "sign-up-input" %>
+    <%= f.password_field :password ,class: "sign-up-input", placeholder: I18n.t('views.minimum_password_length') %>
     <div class="underline"></div>
   </div>
 

@@ -11,8 +11,8 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
     end
 
-    it "ユーザー名が30文字より多い時バリデーションは通らない" do
-      user = User.create(name: "#{'x' * 31}", email: "test@me.com", password: "password", password_confirmation: "password")
+    it "ユーザー名が10文字より多い時バリデーションは通らない" do
+      user = User.create(name: "#{'x' * 11}", email: "test@me.com", password: "password", password_confirmation: "password")
       expect(user).not_to be_valid
     end
 
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
 
   describe "プロフィール編集" do
     it "編集時にパスワードの入力なしでも更新ができる" do
-      @user.update(name: "updated_without_password")
+      @user.update(name: "no_pass")
       expect(@user).to be_valid
     end
 

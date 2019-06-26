@@ -36,12 +36,12 @@
 
   <div class="edit-profile-field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: I18n.t('views.user_name_char_limit') %>
   </div>
 
   <div class="edit-profile-field">
     <%= f.label :bio %>
-    <%= f.text_area :bio %>
+    <%= f.text_area :bio, placeholder: I18n.t('views.user_bio_char_limit') %>
   </div>
 
   <div class="edit-details">
@@ -58,7 +58,7 @@
   
     <div class="edit-profile-field">
       <%= f.label I18n.t('views.new_password') %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder: I18n.t('views.minimum_password_length') %>
     </div>
   
     <div class="edit-profile-field">
