@@ -36,6 +36,15 @@ RSpec.feature Senryu, type: :feature do
     expect(page).to have_content '投稿しました'
   end
 
+  scenario '自分の投稿を削除できる' do
+    visit home_senryus_path
+
+    page.find("#delete_senryu_#{@senryu1.id}").click
+
+    expect(page).to have_content '投稿を削除しました'
+    expect(page).not_to have_text /.+あああああ.+/
+  end
+
   scenario 'Discoverで検索機能が正しく機能する', js: true do
     visit discover_senryus_path
 
