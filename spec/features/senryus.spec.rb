@@ -21,7 +21,7 @@ RSpec.feature Senryu, type: :feature do
     fill_in 'session[email]', with: @user1.email
     fill_in 'session[password]', with: 'password'
   
-    click_on 'Log in'
+    click_button 'log-in'
   end
 
   scenario 'Discoverで検索機能が正しく機能する', js: true do
@@ -35,24 +35,4 @@ RSpec.feature Senryu, type: :feature do
     expect(page).not_to have_text /.+ううううう.+/
   end
 
-  scenario 'Homeで検索機能が正しく機能する', js: true do
-    visit home_senryus_path
-
-    fill_in 'senryu[search_content]', with: 'う'
-    find('#senryu_search_content').native.send_key(:Enter)
-
-    expect(page).to have_text /.+ううううう.+/
-    expect(page).not_to have_text /.+いいいいい.+/
-  end
-
-  scenario 'Collectionで検索機能が正しく機能する', js: true do
-    visit collection_user_path(@user1.id)
-
-    fill_in 'senryu[search_content]', with: 'あ'
-    find('#senryu_search_content').native.send_key(:Enter)
-
-    expect(page).to have_text /.+あああああ.+/
-    expect(page).not_to have_text /.+いいいいい.+/
-    expect(page).not_to have_text /.+ううううう.+/
-  end
 end
