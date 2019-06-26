@@ -98,6 +98,16 @@ RSpec.feature User, type: :feature do
     expect(page).to have_content 'Hello'
   end
 
+  scenario "他人のユーザーページにはプロフィール編集ボタンは表示されない" do
+    login_as_test_user_01
+
+    visit user_path(@test_user_01.id)
+    expect(page).to have_selector '.edit-profile-button'
+
+    visit user_path(@test_user_02.id)
+    expect(page).not_to have_selector '.edit-profile-button'
+  end
+
   scenario "他人のプロフィール編集画面にはアクセスできない" do
     login_as_test_user_01
 
