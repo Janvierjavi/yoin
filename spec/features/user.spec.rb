@@ -147,4 +147,19 @@ RSpec.feature User, type: :feature do
     
     expect(current_path).to eq user_path(@test_user_01.id)
   end
+
+  scenario "退会ができる" do
+    login_as_test_user_01
+
+    visit edit_user_path(@test_user_01.id)
+
+    click_on '退会する'
+
+    expect(current_path).to eq new_user_path
+    expect(page).to have_content 'またね'
+
+    login_as_test_user_01
+
+    expect(page).to have_content 'ログインに失敗しました'
+  end
 end
