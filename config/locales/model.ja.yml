@@ -11,7 +11,7 @@ ja:
         second_line: "二の句"
         third_line: "三の句"
       user:
-        name: "名前"
+        name: "ユーザーネーム"
         email: "Eメール"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
