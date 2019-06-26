@@ -45,6 +45,13 @@ RSpec.feature Senryu, type: :feature do
     expect(page).not_to have_text /.+あああああ.+/
   end
 
+  scenario '他人の投稿は削除できない(削除ボタンの非表示)' do
+    visit home_senryus_path
+    
+    expect(page).not_to have_selector "#delete_senryu_#{@senryu2.id}"
+    expect(page).not_to have_selector "#delete_senryu_#{@senryu3.id}"
+  end
+
   scenario 'Discoverで検索機能が正しく機能する', js: true do
     visit discover_senryus_path
 
