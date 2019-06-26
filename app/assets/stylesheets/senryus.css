@@ -90,7 +90,6 @@
 .posted-senryu-others {
   display: flex;
   flex-direction: column;
-  /* padding-right: px; */
 }
 
 .posted-senryu-line {
@@ -101,6 +100,7 @@
 .timeline-content.left .favorite-button {
   position: absolute;
   right: 20px;
+  width: 35px;
 }
 
 .timeline-content a {
