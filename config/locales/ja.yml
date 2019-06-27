@@ -182,6 +182,7 @@ ja:
       seven_char_limit: ": 7音でお願いします"
       hiragana_only: "ひらがなでお願いします"
       narcissism: "自分自身をフォローすることはできません"
+      ng_word: ": 禁止コンテンツを検知しました"
     template:
       body: 次の項目を確認してください
       header:

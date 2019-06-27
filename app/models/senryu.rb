@@ -5,8 +5,12 @@ class Senryu < ApplicationRecord
   validates :first_line, five_char_length: true
   validates :second_line, seven_char_length: true
   validates :third_line, five_char_length: true
-  
   validate :other_than_hiragana
+  with_options ng_word: true do
+    validates :first_line
+    validates :second_line
+    validates :third_line
+  end
 
   include SearchCop
   search_scope :search do
