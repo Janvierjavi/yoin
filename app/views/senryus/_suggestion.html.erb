@@ -1,0 +1,24 @@
+<li class="timeline-content">
+  <a href="#", class="someone-name">Someone</a>
+  <img class="timeline-profile-icon" src="https://randomuser.me/api/portraits/women/18.jpg" alt="">
+  <div class="posted-senryu">
+    <p class="someone-talking"><%= I18n.t('views.greeting') %><%= current_user.name %></p>
+    <p class="someone-talking"><%= I18n.t('views.wanna_enjoy?') %></p>
+  </div>
+</li>
+<li class="timeline-content">
+  <a href="#", class="someone-name">Someone</a>
+  <img class="timeline-profile-icon" src="https://randomuser.me/api/portraits/women/18.jpg" alt="">
+  <div class="posted-senryu">
+    <p class="someone-talking"><%= I18n.t('views.wanna_discover?') %></p>
+    <%= link_to I18n.t('views.discover'), discover_senryus_path, class: "someone-talking"%>
+  </div>
+</li>
+<li class="timeline-content">
+  <a href="#", class="someone-name">Someone</a>
+  <img class="timeline-profile-icon" src="https://randomuser.me/api/portraits/women/18.jpg" alt="">
+  <div class="posted-senryu">
+    <p class="someone-talking"><%= I18n.t('views.wanna_compose?') %></p>
+    <%= link_to I18n.t('views.compose'), new_senryu_path, class: "someone-talking"%>
+  </div>
+</li>
