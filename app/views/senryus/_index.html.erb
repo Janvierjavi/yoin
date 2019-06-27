@@ -1,5 +1,9 @@
 <div class="timeline-container">
   <ul class="timeline">
+    <% if current_page?(controller: 'senryus', action: 'home') && @senryus.blank?%>
+      <%= render 'senryus/suggestion' %>
+    <% end %>
+
     <% @senryus.each do |senryu| %>
       <% if senryu.user == current_user %>
         <li class="timeline-content right">

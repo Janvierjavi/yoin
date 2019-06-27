@@ -8,6 +8,10 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   views:
+    greeting: "Hello！"
+    wanna_enjoy?: "Yoinを楽しみたくない？"
+    wanna_discover?: "フォローする人を探してみない？"
+    wanna_compose?: "投稿してみない？"
     sign_up: "サインアップ"
     sign_in: "サインイン"
     home: "ホーム"
