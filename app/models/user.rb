@@ -15,17 +15,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :update, unless: Proc.new { |user| user.password.blank? }
   validates :bio, length: { maximum: 150 }
 
-  mount_uploader :icon, IconUploader
-
-  # collection画面での検索フォームは設置しない仕様に変更となったが、ロジックは再利用する可能性もあるため残しておく
-  # def in_collection(params)
-  #   if params[:senryu] && params[:senryu][:search_content]
-  #     favorite_senryus.search(params[:senryu][:search_content])
-  #   else
-  #     favorite_senryus
-  #   end
-  # end
-
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
@@ -37,4 +26,6 @@ class User < ApplicationRecord
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  mount_uploader :icon, IconUploader
 end
