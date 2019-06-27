@@ -13,9 +13,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # とりあえずリダイレクト
       session[:user_id] = @user.id
-      redirect_to user_url(@user.id), notice: I18n.t('controllers.notices.logged_in')
+      redirect_to home_senryus_url, notice: I18n.t('controllers.notices.logged_in')
     else
       render 'new'
     end
