@@ -50,6 +50,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     bcrypt (3.1.11)
+    bcrypt_pbkdf (1.0.1)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -113,6 +114,7 @@ GEM
     dotenv-rails (2.7.2)
       dotenv (= 2.7.2)
       railties (>= 3.2, < 6.1)
+    ed25519 (1.2.4)
     erubi (1.8.0)
     excon (0.64.0)
     execjs (2.7.0)
@@ -152,7 +154,7 @@ GEM
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    libv8 (7.3.492.27.1-x86_64-darwin-18)
+    libv8 (7.3.492.27.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -309,6 +311,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (= 3.1.11)
+  bcrypt_pbkdf (~> 1)
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
@@ -324,6 +327,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   dotenv-rails
+  ed25519 (~> 1.2)
   factory_bot_rails
   faker
   fog-aws
