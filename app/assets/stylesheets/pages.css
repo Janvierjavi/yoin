@@ -41,6 +41,7 @@
   margin: 30px 40px;
   max-width: 100%;
   height: 80px;
+  
   display: flex;
   justify-content: space-around;
   border-top: 1px solid #f9f9fa;
@@ -85,6 +86,7 @@
   cursor: pointer;
 }
 
+
 .relationship-list-outer {
   display: flex;
   align-items: center;
@@ -115,6 +117,7 @@
   width: 50px;
 }
 
+
 .relationship-profile-icon {
   border-radius: 50px;
   object-fit: cover;
@@ -132,6 +135,7 @@
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   cursor: pointer;
 }
+
 
 .decide-to-update-or-no {
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
@@ -183,13 +187,15 @@
   cursor: pointer;
   margin: 20px 30px 0 30px;
   width: 290px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
 }
+
 .edit-icon-field label input {
   display: none;
 }
+
+
 
 .icon-preview-img {
   border-radius: 50px;
@@ -243,6 +249,7 @@
 
 .edit-details-content {
   display: none;
+  
 }
 
 .edit-details-content.open {
@@ -411,6 +418,7 @@
   display: none;
 }
 
+
 .mars {
   width: 200px;
   height: 100px;
@@ -451,4 +459,8 @@
 .sign-x-button-in-top.moderate {
   color: #3F4A8C;
   background: transparent;
+}
+
+.sign-x-button-in-top span {
+  display: inline-block;
 }
