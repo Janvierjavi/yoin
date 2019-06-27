@@ -180,7 +180,7 @@ ja:
       sutegana_rule: ": 捨て仮名(ァィゥェォャュョ)は前の字と合わせて一音とします"
       five_char_limit: ": 5音でお願いします"
       seven_char_limit: ": 7音でお願いします"
-      hiragana_only: "ひらがなでお願いします"
+      hiragana_only: ": ひらがなでお願いします"
       narcissism: "自分自身をフォローすることはできません"
       ng_word: ": 禁止コンテンツを検知しました"
     template:

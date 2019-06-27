@@ -2,14 +2,16 @@ class Senryu < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
-  validates :first_line, five_char_length: true
-  validates :second_line, seven_char_length: true
-  validates :third_line, five_char_length: true
-  validate :other_than_hiragana
-  with_options ng_word: true do
+  with_options five_char_length: true do
     validates :first_line
-    validates :second_line
     validates :third_line
+  end  
+
+  validates :second_line, seven_char_length: true
+
+  [:first_line, :second_line, :third_line].each do |attribute|
+    validates attribute, ng_word: true
+    validates attribute, hiragana_only: true
   end
 
   include SearchCop
@@ -27,8 +29,7 @@ class Senryu < ApplicationRecord
   #     subscribed_and_mine(me.following, me)
   #   end
   # end
-
-  
+    
   def self.in_discover(params)
     params.dig(:senryu, :search_content) ? 
     all.includes(:user, :favorites).search(params.dig(:senryu, :search_content)) : all.includes(:user, :favorites)
@@ -41,17 +42,4 @@ class Senryu < ApplicationRecord
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
   end
-
-  private
-
-  def hiragana?(string)
-    nil != (string =~ /\A[\u3041-\u3096|ー]+\z/)
-  end
-
-  def other_than_hiragana
-    unless hiragana?(first_line + second_line + third_line)
-      errors[:base] << I18n.t('errors.messages.hiragana_only')
-    end
-  end
-
 end
