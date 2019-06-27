@@ -1,3 +1,7 @@
+<%= link_to home_senryus_path, class: "back-arrow" do %>
+  <i class="fas fa-chevron-left"></i>
+<% end %>
+
 <% if @senryu_with_errors.nil? %>
   <%
     @first_initial = first_initial
@@ -9,12 +13,22 @@
 <h6 class="create-new-intro">Each line you start with ...</h6>
 
 <div class="three-random-initials">
-  <h3><%= @first_initial %>・<%= @second_initial %>・<%= @third_initial %></h3>
+  <div class="initial">
+    <%= @first_initial %>
+  </div>
+  <div class="dot">・</div>
+  <div class="initial">
+    <%= @second_initial %>
+  </div>
+  <div class="dot">・</div>
+  <div class="initial">
+    <%= @third_initial %>
+  </div>
 </div>
-  <%= link_to  new_senryu_path do %>
-    <i class="fas fa-sync-alt refresh-initials"></i>
-  <% end %>
 
+<%= link_to new_senryu_path do %>
+  <i class="fas fa-sync-alt refresh-initials"></i>
+<% end %>
 
 <%= form_with(model: @senryu, local: true) do |f| %>
 
@@ -46,5 +60,3 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to I18n.t('views.back'), home_senryus_path, class: "back-from-create-new" %>

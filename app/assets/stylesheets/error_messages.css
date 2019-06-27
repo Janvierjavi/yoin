@@ -32,6 +32,10 @@
   padding-left: 30px;
 }
 
+#error_explanation_in_create_new li {
+  width: 200px;
+}
+
 .sutegana-rule a {
   text-decoration: none;
   color: yellow;
