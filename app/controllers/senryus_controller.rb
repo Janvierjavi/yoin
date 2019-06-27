@@ -1,6 +1,6 @@
 class SenryusController < ApplicationController
   def discover
-    @senryus = Senryu.in_discover(params).timeline
+    @senryus = Senryu.all.includes(:user, :favorites).discover_senryus(params).timeline
   end
 
   def home
