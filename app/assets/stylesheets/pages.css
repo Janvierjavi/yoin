@@ -464,4 +464,7 @@
 .sign-x-button-in-top span {
   display: inline-block;
   text-wrap: nowrap;
+  word-break: keep-all;
+  width: 150px;
+  text-align: center;
 }
