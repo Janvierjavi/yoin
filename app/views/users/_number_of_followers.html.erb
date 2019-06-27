@@ -1,0 +1,6 @@
+<div id="user_<%= user.id %>_followers">
+  <%= link_to followers_user_path(user.id), class: "number-linked" do %>
+    <div><%= number_to_human(user.followers.size, :units => {hundred: "百",thousand: "千", million: "百万"}) %></div>
+    <p><%= I18n.t('views.followers') %></p>
+  <% end %>
+</div>
