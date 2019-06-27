@@ -85,7 +85,17 @@ RSpec.describe Senryu, type: :model do
       expect(senryu2).not_to be_valid
       expect(senryu3).not_to be_valid
     end
+  end
 
+  describe "禁止コンテンツの不許可" do
+    it "禁止コンテンツが含まれているときは通らない" do
+      senryu1 = Senryu.create(first_line: "あいちんこ", second_line: "あいうえおかき", third_line: "あいうえお", user_id: @user_id)
+      senryu2 = Senryu.create(first_line: "あいうえお", second_line: "あいうえちんこ", third_line: "あいうえお", user_id: @user_id)
+      senryu3 = Senryu.create(first_line: "あいうえお", second_line: "あいうえおかき", third_line: "あいちんこ", user_id: @user_id)
+      expect(senryu1).not_to be_valid
+      expect(senryu2).not_to be_valid
+      expect(senryu3).not_to be_valid
+    end
   end
 
 end
