@@ -464,3 +464,9 @@
 .sign-x-button-in-top span {
   display: inline-block;
 }
+
+@media (max-width: 450px) {
+  .sign-x-button-in-top span {
+    font-size: 12px;
+  }
+}
