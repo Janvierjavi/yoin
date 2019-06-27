@@ -28,7 +28,9 @@ body {
 }
 
 .notification-footer {
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+  background-color: #667eea;
+  color: #f9f9fa;
+  border-radius: 5px; 
   display: flex;
   justify-content: flex-start;
   align-items: center;
