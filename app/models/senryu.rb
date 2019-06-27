@@ -2,9 +2,10 @@ class Senryu < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
-  validate :first_line_length
-  validate :second_line_length
-  validate :third_line_length
+  validates :first_line, five_char_length: true
+  validates :second_line, seven_char_length: true
+  validates :third_line, five_char_length: true
+  
   validate :other_than_hiragana
 
   include SearchCop
@@ -37,51 +38,10 @@ class Senryu < ApplicationRecord
     favorites.find_by(user_id: user_id)
   end
 
-  SUTEGANA = ["ぁ", "ぃ", "ぅ", "ぇ", "ぉ", "ゃ", "ゅ", "ょ"]
-  SUTEGANA.freeze
-
   private
-
-  def include_sutegana?(string)
-    SUTEGANA.any? { |i| string.split("").include?(i) }
-  end
-
-  def sutegana_length(string)
-    arr = []
-    string.split("").each do |i|
-      if SUTEGANA.include?(i)
-        arr << i
-      end
-    end
-    arr.length
-  end
 
   def hiragana?(string)
     nil != (string =~ /\A[\u3041-\u3096|ー]+\z/)
-  end
-
-  def first_line_length
-    if include_sutegana?(first_line)
-      errors.add(:first_line, I18n.t('errors.messages.sutegana_rule')) if first_line.length != (5 + sutegana_length(first_line))
-    else
-      errors.add(:first_line, I18n.t('errors.messages.five_char_limit')) if first_line.length != 5
-    end
-  end
-
-  def second_line_length
-    if include_sutegana?(second_line)
-      errors.add(:second_line, I18n.t('errors.messages.sutegana_rule')) if second_line.length != (7 + sutegana_length(second_line))
-    else
-      errors.add(:second_line, I18n.t('errors.messages.seven_char_limit')) if second_line.length != 7
-    end
-  end
-
-  def third_line_length
-    if include_sutegana?(third_line)
-      errors.add(:third_line, I18n.t('errors.messages.sutegana_rule')) if third_line.length != (5 + sutegana_length(third_line))
-    else
-      errors.add(:third_line, I18n.t('errors.messages.five_char_limit')) if third_line.length != 5
-    end
   end
 
   def other_than_hiragana
