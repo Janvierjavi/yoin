@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: flex-end;
   margin-left: 20px;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .profile-content h6 {
@@ -43,8 +43,8 @@
   height: 80px;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #f9f9fa;
+  border-bottom: 1px solid #f9f9fa;
 }
 
 .number-linked-outer {
@@ -60,13 +60,13 @@
 }
 
 .number-linked div {
-  color: #fff;
+  color: #f9f9fa;
   font-size: 18px;
 }
 
 .number-linked p {
   margin: 0;
-  color: #fff;
+  color: #f9f9fa;
   font-size: 10px;
 }
 
@@ -78,7 +78,7 @@
   width: 200px;
   height: 40px;
   font-size: 12px;
-  color: #fff;
+  color: #f9f9fa;
   border: none;
   border-radius: 9px;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -102,7 +102,7 @@
 .user-info a {
   text-decoration: none;
   margin-right: 10px;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .user-name-in-relationship {
@@ -126,7 +126,7 @@
   width: 120px;
   height: 30px;
   font-size: 12px;
-  color: #fff;
+  color: #f9f9fa;
   border: none;
   border-radius: 9px;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -211,6 +211,7 @@
 .edit-profile-field label {
   font-size: 14px;
   margin-bottom: 5px;
+  color: #f9f9fa;
 }
 
 .edit-profile-field input {
@@ -256,14 +257,14 @@
   margin: 0 47px;
 }
 
-.back-to-top {
-  width: 300px;
-  margin: 30px 25px 0 25px;
+.back-arrow {
+  width: 290px;
+  margin: 30px 30px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  color: #f9f9fa;
 }
 .sign-up-title {
   width: 280px;
@@ -274,7 +275,7 @@
 
 .sign-up-title h1 {
   margin: 0;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .sign-up-field {
@@ -282,7 +283,7 @@
   margin: 35px 35px 0 35px;
   display: flex;
   flex-direction: column;
-  color: #fff
+  color: #f9f9fa
 }
 
 .sign-up-field label {
@@ -292,11 +293,11 @@
 .sign-up-input {
   border: none;
   outline: 0;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #f9f9fa;
   background: transparent;
   min-width: 100%;
   font-size: 14px;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .underline {
@@ -318,7 +319,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .round-shaped-submit {
@@ -328,7 +329,7 @@
   height: 100px;
   border-radius: 50px;
   background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .round-shaped-submit i {
@@ -337,7 +338,7 @@
 
 .round-shaped-submit:hover {
   border: 3px solid #667eea;
-  background: #fff;
+  background: #f9f9fa;
   color: #667eea;
 }
 
@@ -383,7 +384,7 @@
   height: 24px;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #f9f9fa;
 }
 
 .top-tanka-line.hide {
@@ -391,7 +392,7 @@
 }
 
 .tanka-initial {
-  border: 1px solid #fff;;
+  border: 1px solid #f9f9fa;;
   width: 24px;
   height: 24px;
   border-radius: 50px;
@@ -404,6 +405,7 @@
 .kwsk {
   text-decoration: none;
   font-size: 12px;
+  color: skyblue;
 }
 
 .kwsk.hide {
@@ -430,7 +432,7 @@
 .sign-x-button-in-top {
   text-decoration: none;
   font-size: 12px;
-  color: #fff;
+  color: #f9f9fa;
   margin: 15px;
   width: 180px;
   height: 40px;
@@ -443,7 +445,7 @@
 
 .sign-x-button-in-top:hover {
   background: #3F4A8C;
-  color: #fff;
+  color: #f9f9fa;
   text-decoration: none;
 }
 

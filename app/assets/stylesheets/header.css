@@ -20,7 +20,7 @@
 	background-color:#5e616a;
 	border:none;
 	border-radius:3px;
-  color:#fff;
+  color:#f9f9fa;
   font-size: 12px;
 	background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
 	background-repeat:no-repeat;
@@ -29,7 +29,7 @@
 }
 
 .search-header input::placeholder {
-  color: #fff;
+  color: #f9f9fa;
   text-align: center;
 }
 
