@@ -33,7 +33,7 @@
 
 .profile-content p {
   margin: 5px 0 5px;
-  font-size: 12px;
+  font-size: 1.8vmin;
 }
 
 .numbers-related-to-user {
@@ -77,7 +77,7 @@
 #button-in-profile {
   width: 200px;
   height: 40px;
-  font-size: 12px;
+  font-size: 1.8vmin;
   color: #f9f9fa;
   border: none;
   border-radius: 9px;
@@ -106,7 +106,7 @@
 }
 
 .user-name-in-relationship {
-  font-size: 12px;
+  font-size: 1.8vmin;
 }
 
 .profile-icon-link {
@@ -125,7 +125,7 @@
 #button-in-relationship {
   width: 120px;
   height: 30px;
-  font-size: 12px;
+  font-size: 1.8vmin;
   color: #f9f9fa;
   border: none;
   border-radius: 9px;
@@ -179,7 +179,7 @@
 .edit-icon-field label {
   background-color: rgba(0, 0, 0, 0);
   color: skyblue;
-  font-size: 12px;
+  font-size: 1.8vmin;
   cursor: pointer;
   margin: 20px 30px 0 30px;
   width: 290px;
@@ -235,7 +235,7 @@
 
 .edit-details a {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 1.8vmin;
   color: skyblue;
   cursor: pointer;
   width: 100px;
@@ -403,7 +403,7 @@
 
 .kwsk {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 1.8vmin;
   color: skyblue;
 }
 
@@ -430,7 +430,7 @@
 
 .sign-x-button-in-top {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 1.8vmin;
   color: #f9f9fa;
   margin: 15px;
   width: 180px;
