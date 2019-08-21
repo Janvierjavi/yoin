@@ -55,25 +55,12 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# has_secure_password
 gem 'bcrypt', '3.1.11'
-
-# for uploading image
 gem 'carrierwave'
-gem 'mini_magick'
+gem "mini_magick", ">= 4.9.4"
 gem 'fog-aws'
-
-# .env
 gem 'dotenv-rails'
-
-# for searching Senryu
 gem 'search_cop'
-
-# Fake users
 gem 'faker'
-
-# アプリケーションサーバ
 gem 'unicorn' 
-
-# デプロイ時に必要
 gem 'mini_racer', platforms: :ruby 
