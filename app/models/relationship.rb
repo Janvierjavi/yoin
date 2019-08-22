@@ -5,7 +5,6 @@ class Relationship < ApplicationRecord
   validate :follow_myself
 
   private
-
   def follow_myself
     errors[:base] << I18n.t('errors.messages.narcissism') if follower_id == followed_id
   end
