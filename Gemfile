@@ -64,3 +64,4 @@ gem 'search_cop'
 gem 'faker'
 gem 'unicorn' 
 gem 'mini_racer', platforms: :ruby 
+gem "nokogiri", ">= 1.10.4"
