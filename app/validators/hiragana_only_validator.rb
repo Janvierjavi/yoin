@@ -1,4 +1,5 @@
 class HiraganaOnlyValidator < ActiveModel::EachValidator
+  private
   def hiragana?(string)
     nil != (string =~ /\A[\u3041-\u3096|ー]+\z/)
   end
