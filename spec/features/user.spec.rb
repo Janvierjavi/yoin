@@ -74,8 +74,8 @@ RSpec.feature User, type: :feature do
     expect(current_path).to eq new_session_path
 
     # トップページ（アクセス可）
-    visit yoin_top_path
-    expect(current_path).to eq yoin_top_path
+    visit root_path
+    expect(current_path).to eq root_path
 
     # サインアップページ（アクセス可）
     visit new_session_path

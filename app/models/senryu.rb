@@ -2,18 +2,6 @@ class Senryu < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
-  [:first_line, :second_line, :third_line].each do |attribute|
-    if attribute == :second_line
-      validates attribute, seven_char_length: true
-      validates attribute, ng_word: true
-      validates attribute, hiragana_only: true
-    else
-      validates attribute, five_char_length: true
-      validates attribute, ng_word: true
-      validates attribute, hiragana_only: true
-    end
-  end
-  
   include SearchCop
   search_scope :search do
     attributes :first_line, :second_line, :third_line
@@ -25,5 +13,17 @@ class Senryu < ApplicationRecord
   
   def favorited(user_id)
     favorites.find_by(user_id: user_id)
+  end
+
+  [:first_line, :second_line, :third_line].each do |attribute|
+    if attribute == :second_line
+      validates attribute, seven_char_length: true
+      validates attribute, ng_word: true
+      validates attribute, hiragana_only: true
+    else
+      validates attribute, five_char_length: true
+      validates attribute, ng_word: true
+      validates attribute, hiragana_only: true
+    end
   end
 end
