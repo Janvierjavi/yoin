@@ -2,6 +2,7 @@ class SevenCharLengthValidator < ActiveModel::EachValidator
   SUTEGANA = ["ぁ", "ぃ", "ぅ", "ぇ", "ぉ", "ゃ", "ゅ", "ょ"]
   SUTEGANA.freeze
   
+  private
   def include_sutegana?(string)
     SUTEGANA.any? { |i| string.split("").include?(i) }
   end
