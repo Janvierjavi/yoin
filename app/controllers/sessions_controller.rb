@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    reset_session
     flash[:notice] = I18n.t('controllers.notices.logged_out')
     redirect_to new_session_path
   end
